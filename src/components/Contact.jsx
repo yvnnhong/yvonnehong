@@ -62,10 +62,10 @@ const Contact = () => {
     setIsSubmitting(true)
     
     emailjs.sendForm(
-      'service_yvqrsrp', // Replace with your EmailJS service ID
-      'template_20tifed', // Replace with your EmailJS template ID
+      'service_yvqrsrp', // my EmailJS service ID
+      'template_20tifed', // my EmailJS template ID
       formRef.current,
-      'I98BEOYuKzuLYJBYY' // Replace with your EmailJS user ID
+      'I98BEOYuKzuLYJBYY' // my EmailJS user ID
     )
       .then((result) => {
         console.log('Email sent successfully:', result.text)
