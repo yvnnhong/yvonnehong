@@ -20,7 +20,7 @@ const Projects = () => {
         image: 'project1.jpg',
         githubUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model',
         liveUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model/blob/main/risk_parity_portfolio_optimization_model.ipynb',
-        featured: false, // Changed from true to false to ensure uniform sizing
+        featured: false,
       },
       {
         id: 2,
@@ -32,7 +32,7 @@ const Projects = () => {
         image: 'project2.jpg',
         githubUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
         liveUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
-        featured: false, // Changed from true to false
+        featured: false,
       },
       {
         id: 3,
@@ -56,7 +56,7 @@ const Projects = () => {
         image: 'project4.jpg',
         githubUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution',
         liveUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution/blob/main/rolling_factor_model_alpha_attribution.ipynb',
-        featured: false, // Changed from true to false
+        featured: false,
       },
       {
         id: 5,
@@ -164,12 +164,6 @@ const Projects = () => {
 }
 
 const ProjectCard = ({ project }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded)
-  }
-  
   return (
     <motion.div
       variants={{
@@ -212,13 +206,7 @@ const ProjectCard = ({ project }) => {
           </div>
           
           <div className={styles.projectDescription}>
-            <p>{isExpanded ? project.longDescription : project.description}</p>
-            <button 
-              className={styles.expandButton} 
-              onClick={toggleExpand}
-            >
-              {isExpanded ? 'Show Less' : 'Read More'}
-            </button>
+            <p>{project.description}</p>
           </div>
           
           <div className={styles.techTags}>
