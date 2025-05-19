@@ -21,7 +21,7 @@ function App() {
   }, [])
   
   return (
-    <Router>
+    <Router basename="/yvonnehong">
       <div className="app">
         <VantaBirdsBackground />
         
