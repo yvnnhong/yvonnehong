@@ -75,7 +75,6 @@
 .projectCard {
   aspect-ratio: 1 / 1;
   border-radius: var(--border-radius-lg);
-  overflow: hidden;
   transition: var(--transition-normal);
   box-shadow: var(--shadow-md);
   position: relative;
@@ -91,13 +90,13 @@
   flex-direction: column;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  transition: var(--transition-normal);
+  transition: all 0.3s ease-in-out; /* Updated for smooth transition */
 }
 
 .projectCard:hover .projectCardInner {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  border-color: var(--primary-dark);
+  border: 1px solid var(--primary-dark);
 }
 
 /* Project Image */
