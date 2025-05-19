@@ -20,7 +20,7 @@ const Projects = () => {
         image: 'project1.jpg',
         githubUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model',
         liveUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model/blob/main/risk_parity_portfolio_optimization_model.ipynb',
-        featured: true,
+        featured: false, // Changed from true to false to ensure uniform sizing
       },
       {
         id: 2,
@@ -32,7 +32,7 @@ const Projects = () => {
         image: 'project2.jpg',
         githubUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
         liveUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
-        featured: true,
+        featured: false, // Changed from true to false
       },
       {
         id: 3,
@@ -56,7 +56,7 @@ const Projects = () => {
         image: 'project4.jpg',
         githubUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution',
         liveUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution/blob/main/rolling_factor_model_alpha_attribution.ipynb',
-        featured: true,
+        featured: false, // Changed from true to false
       },
       {
         id: 5,
@@ -155,7 +155,7 @@ const Projects = () => {
         initial="hidden"
         animate="show"
       >
-        {filteredProjects.map((project) => (
+        {filteredProjects.slice(0, 6).map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </motion.div>
@@ -176,7 +176,7 @@ const ProjectCard = ({ project }) => {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 }
       }}
-      className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
+      className={styles.projectCard}
     >
       <div className={styles.projectCardInner}>
         <div className={styles.projectImageContainer}>

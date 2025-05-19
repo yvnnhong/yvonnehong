@@ -64,10 +64,11 @@
 /* Projects Grid */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1200px;
   padding: 0 var(--space-md);
 }
 
@@ -79,10 +80,6 @@
   box-shadow: var(--shadow-md);
   position: relative;
   z-index: 1;
-}
-
-.projectCard.featured {
-  grid-column: span 2;
 }
 
 .projectCardInner {
@@ -137,10 +134,6 @@
   color: transparent;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 2;
-}
-
-.projectCard.featured .projectImageContainer {
-  height: 220px;
 }
 
 .projectOverlay {
@@ -281,14 +274,16 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .projectCard.featured {
-    grid-column: span 1;
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .projectsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 
   .filterButtons {
@@ -299,15 +294,5 @@
   .filterButton {
     font-size: var(--font-xs);
     padding: 6px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .projectsGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .filterButtons {
-    gap: var(--space-sm);
   }
 }
