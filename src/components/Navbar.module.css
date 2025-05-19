@@ -1,0 +1,247 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-nav);
+  padding: var(--space-md) 0;
+  transition: var(--transition-normal);
+  backdrop-filter: blur(10px);
+  background-color: rgba(10, 15, 26, 0.8);
+  border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+}
+
+.header.scrolled {
+  padding: var(--space-sm) 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(10, 15, 26, 0.95);
+}
+
+.header.scrolled::after {
+  opacity: 0.7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-lg);
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 110;
+}
+
+.logoContent {
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  animation: pulse 3s infinite;
+}
+
+.logoMain {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-right: var(--space-sm);
+  position: relative;
+}
+
+.logoMain::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--secondary);
+  bottom: 2px;
+  right: -8px;
+}
+
+.logoText {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: inline-block;
+  transition: var(--transition-fast);
+  letter-spacing: 0.5px;
+}
+
+.logo:hover .logoText {
+  color: var(--text-primary);
+}
+
+/* Navigation Menu */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: var(--space-lg);
+}
+
+.navLink {
+  position: relative;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  transition: var(--transition-fast);
+  font-size: var(--font-sm);
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.navLink:hover,
+.navLink.active {
+  color: var(--primary);
+}
+
+.navLinkEffect {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+}
+
+.navHoverLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.navLink:hover .navHoverLine,
+.navLink.active .navHoverLine {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile Menu */
+.mobileMenuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.menuBar {
+  position: relative;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuBar::before,
+.menuBar::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuBar::before {
+  transform: translateY(-8px);
+}
+
+.menuBar::after {
+  transform: translateY(8px);
+}
+
+.menuBar.active {
+  background: transparent;
+  transform: rotate(180deg);
+}
+
+.menuBar.active::before {
+  transform: rotate(45deg);
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.menuBar.active::after {
+  transform: rotate(-45deg);
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .mobileMenuToggle {
+    display: flex;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(10, 15, 26, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: var(--transition-normal);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--metallic-border);
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-md);
+    padding: 0 var(--space-lg);
+  }
+
+  .navLink {
+    font-size: var(--font-lg);
+    width: 100%;
+    display: block;
+    padding: var(--space-sm) 0;
+    text-align: center;
+  }
+}

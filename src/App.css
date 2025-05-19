@@ -1,42 +1,118 @@
-#root {
-  max-width: 1280px;
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Loader Animation */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--background-main);
+  z-index: 10;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.loader-text {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
+
+.loader-dot {
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.loader-name {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+/* Terminal Effect */
+.terminal-line {
+  display: flex;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  background-color: var(--background-code);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  width: 300px;
+  margin-top: var(--space-sm);
+  border: 1px solid var(--metallic-border);
+}
+
+.terminal-prompt {
+  color: var(--primary);
+  margin-right: var(--space-sm);
+}
+
+.terminal-text {
+  color: var(--text-primary);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: var(--primary);
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+/* Main Content */
+.content {
+  position: relative;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animation for page transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Main layout */
+main {
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 80px var(--space-md) var(--space-lg);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .terminal-line {
+    width: 280px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
