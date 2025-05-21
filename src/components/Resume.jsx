@@ -21,16 +21,10 @@ const Resume = () => {
   }
   
   // Skills data
-  const skills = [
-    { name: 'Python', level: 95, category: 'programming' },
-    { name: 'CVXPY', level: 90, category: 'data' },
-    { name: 'Pandas', level: 95, category: 'data' },
-    { name: 'Statistical Analysis', level: 90, category: 'data' },
-    { name: 'ML Algorithms', level: 85, category: 'data' },
-    { name: 'JavaScript/React', level: 80, category: 'programming' },
-    { name: 'Algorithmic Design', level: 85, category: 'programming' },
-    { name: 'C/C++', level: 75, category: 'programming' },
-  ]
+  const skills = {
+    programming: ['Python', 'JavaScript/React', 'Algorithmic Design', 'C/C++'],
+    data: ['CVXPY', 'Pandas', 'Statistical Analysis', 'ML Algorithms']
+  }
   
   return (
     <motion.div
@@ -220,28 +214,17 @@ const Resume = () => {
                   <div className={styles.skillsContent}>
                     <div className={styles.skillSection}>
                       <h3>Programming Languages</h3>
-                      <div className={styles.skillGrid}>
-                        {skills.filter(skill => skill.category === 'programming').map((skill, index) => (
+                      <div className={styles.skillCards}>
+                        {skills.programming.map((skill, index) => (
                           <motion.div 
-                            key={skill.name}
-                            className={styles.skillItem}
+                            key={skill}
+                            className={styles.skillCard}
                             custom={index}
                             variants={fadeIn}
                             initial="initial"
                             animate="animate"
                           >
-                            <div className={styles.skillInfo}>
-                              <span className={styles.skillName}>{skill.name}</span>
-                              <span className={styles.skillLevel}>{skill.level}%</span>
-                            </div>
-                            <div className={styles.skillBar}>
-                              <motion.div 
-                                className={styles.skillFill}
-                                initial={{ width: 0 }}
-                                animate={{ width: `${skill.level}%` }}
-                                transition={{ duration: 1, delay: 0.2 + (index * 0.1) }}
-                              ></motion.div>
-                            </div>
+                            {skill}
                           </motion.div>
                         ))}
                       </div>
@@ -249,28 +232,17 @@ const Resume = () => {
                     
                     <div className={styles.skillSection}>
                       <h3>Data Science & Analytics</h3>
-                      <div className={styles.skillGrid}>
-                        {skills.filter(skill => skill.category === 'data').map((skill, index) => (
+                      <div className={styles.skillCards}>
+                        {skills.data.map((skill, index) => (
                           <motion.div 
-                            key={skill.name}
-                            className={styles.skillItem}
+                            key={skill}
+                            className={styles.skillCard}
                             custom={index}
                             variants={fadeIn}
                             initial="initial"
                             animate="animate"
                           >
-                            <div className={styles.skillInfo}>
-                              <span className={styles.skillName}>{skill.name}</span>
-                              <span className={styles.skillLevel}>{skill.level}%</span>
-                            </div>
-                            <div className={styles.skillBar}>
-                              <motion.div 
-                                className={styles.skillFill}
-                                initial={{ width: 0 }}
-                                animate={{ width: `${skill.level}%` }}
-                                transition={{ duration: 1, delay: 0.4 + (index * 0.1) }}
-                              ></motion.div>
-                            </div>
+                            {skill}
                           </motion.div>
                         ))}
                       </div>
@@ -297,7 +269,7 @@ const Resume = () => {
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Languages</h3>
+                      <h3>Spoken Languages</h3>
                       <div className={styles.languages}>
                         <div className={styles.language}>
                           <span className={styles.languageName}>English</span>

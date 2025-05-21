@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 
@@ -184,14 +184,11 @@ const Contact = () => {
           <motion.div className={styles.socialLinks} variants={fadeInUp}>
             <h3>Connect with me</h3>
             <div className={styles.socialIcons}>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+              <a href="http://www.linkedin.com/in/yvnnhong" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <FaLinkedinIn />
               </a>
               <a href="https://github.com/yvnnhong" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <FaGithub />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <FaTwitter />
               </a>
             </div>
           </motion.div>

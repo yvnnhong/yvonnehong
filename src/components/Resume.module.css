@@ -374,7 +374,7 @@
   font-size: var(--font-md);
 }
 
-/* Skills Tab */
+/* Skills Tab - Updated without progress bars */
 .skillsContent {
   display: flex;
   flex-direction: column;
@@ -387,7 +387,7 @@
 
 .skillSection h3 {
   font-size: var(--font-md);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   color: var(--primary);
   position: relative;
   display: inline-block;
@@ -404,47 +404,30 @@
   border-radius: 2px;
 }
 
-.skillGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
-}
-
-.skillItem {
-  width: 100%;
-}
-
-.skillInfo {
+/* New skill cards to replace progress bars */
+.skillCards {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: var(--font-xs);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.skillCard {
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 16px;
+  font-size: var(--font-sm);
   font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.skillName {
-  font-weight: 500;
-}
-
-.skillLevel {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.skillBar {
-  height: 6px;
-  background-color: rgba(20, 28, 45, 0.8);
-  border-radius: 10px;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-}
-
-.skillFill {
-  height: 100%;
-  background: linear-gradient(to right, var(--primary-dark), var(--primary));
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(100, 255, 218, 0.3);
+.skillCard:hover {
+  transform: translateY(-2px);
+  background: rgba(100, 255, 218, 0.15);
+  box-shadow: 0 4px 8px rgba(100, 255, 218, 0.15);
 }
 
 .techTags {
@@ -538,10 +521,6 @@
   .tabButton {
     white-space: nowrap;
     padding: 12px;
-  }
-  
-  .skillGrid {
-    grid-template-columns: 1fr;
   }
   
   .profileSection {
