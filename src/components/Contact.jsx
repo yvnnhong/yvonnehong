@@ -62,10 +62,10 @@ const Contact = () => {
     setIsSubmitting(true)
     
     emailjs.sendForm(
-      'service_yvqrsrp', // my EmailJS service ID
-      'template_20tifed', // my EmailJS template ID
+      process.env.REACT_APP_EMAILJS_SERVICE_ID, // Now using environment variable
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Now using environment variable
       formRef.current,
-      'I98BEOYuKzuLYJBYY' // my EmailJS user ID
+      process.env.REACT_APP_EMAILJS_USER_ID // Now using environment variable
     )
       .then((result) => {
         console.log('Email sent successfully:', result.text)
@@ -132,8 +132,8 @@ const Contact = () => {
                 staggerChildren: 0.1,
                 delayChildren: 0.2
               }
-            }
-          }}
+            }}
+          }
           initial="hidden"
           animate="visible"
         >
