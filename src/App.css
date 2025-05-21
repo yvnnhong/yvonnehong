@@ -14,46 +14,6 @@
   z-index: 10;
 }
 
-.loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-md);
-}
-
-.loader-text {
-  font-size: 3.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 1px;
-  animation: pulse 2s infinite;
-}
-
-.loader-dot {
-  width: 8px;
-  height: 8px;
-  margin-left: 5px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 50%;
-  animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
-
-.loader-name {
-  font-size: 1.5rem;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-lg);
-  font-weight: 300;
-  letter-spacing: 3px;
-}
-
 /* Terminal Effect */
 .terminal-line {
   display: flex;
@@ -63,7 +23,7 @@
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--border-radius-md);
   width: 300px;
-  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
   border: 1px solid var(--metallic-border);
 }
 
@@ -83,6 +43,38 @@
   background-color: var(--primary);
   margin-left: 5px;
   animation: blink 1s infinite;
+}
+
+/* Loading Bar Styles */
+.loading-bar-container {
+  width: 300px;
+  height: 6px;
+  background-color: rgba(102, 167, 197, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(125, 193, 195, 0.2);
+}
+
+.loading-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #66a7c5, #7dc1c3, #66a7c5);
+  background-size: 200% 100%;
+  border-radius: 3px;
+  transition: width 0.2s ease;
+  animation: shimmer 2s infinite linear;
+  box-shadow: 0 0 8px rgba(102, 167, 197, 0.5);
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 /* Main Content */
@@ -108,11 +100,11 @@ main {
 }
 
 @media (max-width: 768px) {
-  .loader-text {
-    font-size: 2.5rem;
+  .terminal-line {
+    width: 280px;
   }
   
-  .terminal-line {
+  .loading-bar-container {
     width: 280px;
   }
 }

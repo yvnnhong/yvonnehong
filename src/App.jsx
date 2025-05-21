@@ -10,14 +10,27 @@ import './App.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const [progress, setProgress] = useState(0)
   
   useEffect(() => {
-    // Simulate initial loading
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 2000)
+    // Simulate initial loading with progressive loading bar
+    const loadingDuration = 2000
+    const intervalTime = 20
+    const steps = loadingDuration / intervalTime
+    const progressIncrement = 100 / steps
     
-    return () => clearTimeout(timer)
+    let currentProgress = 0
+    const progressInterval = setInterval(() => {
+      currentProgress += progressIncrement
+      setProgress(Math.min(currentProgress, 100))
+      
+      if (currentProgress >= 100) {
+        clearInterval(progressInterval)
+        setLoading(false)
+      }
+    }, intervalTime)
+    
+    return () => clearInterval(progressInterval)
   }, [])
   
   return (
@@ -27,15 +40,16 @@ function App() {
         
         {loading ? (
           <div className="loader-container">
-            <div className="loader">
-              <span className="loader-text">Quantitative</span>
-              <div className="loader-dot"></div>
-            </div>
-            <div className="loader-name">Yvonne Hong</div>
             <div className="terminal-line">
               <span className="terminal-prompt">$</span>
               <span className="terminal-text">Initializing portfolio...</span>
               <span className="terminal-cursor"></span>
+            </div>
+            <div className="loading-bar-container">
+              <div 
+                className="loading-bar" 
+                style={{ width: `${progress}%` }}
+              ></div>
             </div>
           </div>
         ) : (
