@@ -87,13 +87,6 @@ const Resume = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Adjusted download link */}
-              <a href="/Yvonne_Hong_Resume.pdf" download="Yvonne_Hong_Resume.pdf" className={styles.downloadButton}>
-                Download CV
-              <span className={styles.buttonHighlight}></span>
-              </a>
-
             </div>
           </motion.div>
         </div>
