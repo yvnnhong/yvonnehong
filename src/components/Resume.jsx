@@ -100,34 +100,6 @@ const Resume = () => {
               </a>
             </div>
           </motion.div>
-          
-          <motion.div 
-            className={styles.skillsOverview}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3>Technical Proficiency</h3>
-            
-            <div className={styles.skillBars}>
-              {skills.slice(0, 4).map((skill, index) => (
-                <div key={skill.name} className={styles.skillBar}>
-                  <div className={styles.skillInfo}>
-                    <span>{skill.name}</span>
-                    <span>{skill.level}%</span>
-                  </div>
-                  <div className={styles.skillProgress}>
-                    <motion.div 
-                      className={styles.skillFill}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: 0.5 + (index * 0.1) }}
-                    ></motion.div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
         
         <div className={styles.mainContent}>

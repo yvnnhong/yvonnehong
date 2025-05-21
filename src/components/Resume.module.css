@@ -176,68 +176,6 @@
   left: 150%;
 }
 
-.skillsOverview {
-  background-color: var(--background-card);
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--metallic-border);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(10px);
-}
-
-.skillsOverview h3 {
-  color: var(--text-primary);
-  font-size: var(--font-md);
-  margin-bottom: var(--space-sm);
-  position: relative;
-  display: inline-block;
-}
-
-.skillsOverview h3::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background: var(--primary);
-  border-radius: 2px;
-}
-
-.skillBars {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-}
-
-.skillBar {
-  width: 100%;
-}
-
-.skillInfo {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: var(--font-xs);
-  font-weight: 500;
-}
-
-.skillProgress {
-  height: 6px;
-  background-color: rgba(20, 28, 45, 0.8);
-  border-radius: 10px;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-}
-
-.skillFill {
-  height: 100%;
-  background: linear-gradient(to right, var(--primary-dark), var(--primary));
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(100, 255, 218, 0.3);
-}
-
 /* Main Content Area */
 .mainContent {
   flex: 1;
@@ -477,6 +415,14 @@
   width: 100%;
 }
 
+.skillInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
 .skillName {
   font-weight: 500;
 }
@@ -484,6 +430,21 @@
 .skillLevel {
   color: var(--primary);
   font-weight: 600;
+}
+
+.skillBar {
+  height: 6px;
+  background-color: rgba(20, 28, 45, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.skillFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary-dark), var(--primary));
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(100, 255, 218, 0.3);
 }
 
 .techTags {
@@ -545,10 +506,6 @@
     width: 100%;
     position: static;
     margin-bottom: var(--space-lg);
-  }
-  
-  .skillsOverview {
-    display: none; /* Hide on smaller screens as it's redundant with skills tab */
   }
   
   .profileSection {
