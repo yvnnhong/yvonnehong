@@ -89,7 +89,7 @@ const Resume = () => {
               </div>
               
               {/* Adjusted download link */}
-              <a href="/yvonnehong/public/Yvonne_Hong_Resume.pdf" download="Yvonne_Hong_Resume.pdf" className={styles.downloadButton}>
+              <a href="/Yvonne_Hong_Resume.pdf" download="Yvonne_Hong_Resume.pdf" className={styles.downloadButton}>
                 Download CV
               <span className={styles.buttonHighlight}></span>
               </a>
