@@ -10,9 +10,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 90vh;
+  min-height: 70vh; /* Reduced from 90vh to decrease vertical space */
   width: 100%;
-  padding: var(--space-xl) 0;
+  max-width: 1200px; /* Constrain hero section width */
+  margin: 0 auto; /* Center the section */
+  padding: var(--space-lg) var(--space-md); /* Reduced vertical padding from --space-xl */
   gap: var(--space-xl);
 }
 
@@ -312,9 +314,10 @@
 /* Quick Info Section */
 .quickInfoSection {
   width: 100%;
-  margin-top: -50px;
-  margin-bottom: var(--space-xl);
-  padding: 0 var(--space-md);
+  max-width: 1200px; /* Match heroSection max-width */
+  margin: 0 auto; /* Center the section */
+  margin-bottom: var(--space-lg); /* Reduced from --space-xl to decrease gap */
+  padding: var(--space-md) var(--space-md); /* Reduced vertical padding */
 }
 
 .infoCards {
@@ -322,6 +325,8 @@
   gap: var(--space-lg);
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 1080px; /* Match approximate combined width of heroContent + heroVisuals */
+  margin: 0 auto; /* Center the cards */
 }
 
 .infoCard {
@@ -370,7 +375,7 @@
   .heroSection {
     flex-direction: column;
     text-align: center;
-    padding-top: var(--space-xxl);
+    padding-top: var(--space-xl); /* Adjusted for responsive */
     gap: var(--space-xl);
   }
   
@@ -386,7 +391,7 @@
   }
   
   .quickInfoSection {
-    margin-top: var(--space-lg);
+    padding: var(--space-sm) var(--space-md); /* Further reduced padding for smaller screens */
   }
 }
 
