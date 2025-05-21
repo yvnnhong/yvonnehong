@@ -117,11 +117,8 @@ const Contact = () => {
         className={styles.contactHeader}
       >
         <h1 className={styles.pageTitle}>
-          Get In <span className="text-gradient">Touch</span>
+          Get In Touch <span className="text-gradient">With Me</span>
         </h1>
-        <p className={styles.pageSubtitle}>
-          Feel free to contact me for collaborations or opportunities
-        </p>
       </motion.div>
 
       <div className={styles.contactContent}>
@@ -141,9 +138,12 @@ const Contact = () => {
           animate="visible"
         >
           <motion.div className={styles.infoHeader} variants={fadeInUp}>
-            <h2>Let's discuss your project!</h2>
+            <h2>Let's Talk Quant Finance!</h2>
             <p>
-              Have a project in mind or want to discuss quantitative strategies? Feel free to reach out directly at{' '}
+              I’m actively seeking my next challenge in quantitative finance — ideally with a 
+              high-performing team in New York City. With a strong background in statistical 
+              modeling, convex optimization, and multivariate stochastic processes, I’m ready to contribute from day one. 
+              Feel free to reach out to me directly at{' '}
               <a href="mailto:yvonneh.nyc@gmail.com" className={styles.emailLink}>
                 yvonneh.nyc@gmail.com
               </a>
