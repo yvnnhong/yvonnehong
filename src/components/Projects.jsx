@@ -8,79 +8,31 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   
   useEffect(() => {
-    // ML and Data Engineering focused projects
+    // Your actual projects from resume
     const projectsData = [
       {
         id: 1,
         title: 'eBird Java Kafka Stream Processor',
-        description: 'Real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with machine learning models achieving 100% precision and 96.9% recall.',
-        longDescription: 'Engineered a real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation. Built end-to-end data pipeline processing 47GB eBird dataset with DuckDB SQL analysis, Python CSV processing, synthetic data generation, and real-time streaming.',
+        description: 'Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation, achieving 100% precision and 96.9% recall on 1,000+ synthetic observations. Processed 47GB eBird dataset using SQL and DuckDB to extract Mourning Dove population trends across 20 years (2005-2024), analyzing 174,422+ bird observations and 34,963+ individual records for baseline establishment and breeding pattern analysis.',
+        longDescription: 'Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn) with polynomial regression (R² = 0.969), generating synthetic observations with realistic seasonal breeding patterns. Implemented statistical anomaly detection using Z-score analysis and Python visualization libraries (matplotlib, seaborn), processing streaming data in real-time through containerized microservices architecture. Built end-to-end data pipeline (47GB eBird dataset → DuckDB SQL analysis → Python CSV processing → synthetic data generation → Kafka streaming → real-time anomaly detection → JSON alerts) with Maven build automation.',
         category: 'data-engineering',
-        technologies: ['Java', 'Apache Kafka', 'Docker', 'Python', 'SQL', 'DuckDB', 'Maven'],
+        technologies: ['Java', 'Apache Kafka', 'Docker', 'Python', 'SQL', 'DuckDB', 'scikit-learn', 'pandas', 'NumPy', 'matplotlib', 'seaborn', 'Maven'],
         image: 'project1.jpg',
-        githubUrl: 'https://github.com/yvnnhong/ebird-kafka-processor',
-        liveUrl: 'https://github.com/yvnnhong/ebird-kafka-processor',
+        githubUrl: 'https://github.com/yvnnhong/ebird-kafka-stream-processor',
+        liveUrl: 'https://github.com/yvnnhong/ebird-kafka-stream-processor',
         featured: true,
       },
       {
         id: 2,
         title: 'eBird SQL DuckDB Analytics',
-        description: 'Large-scale data analytics project analyzing 47GB of eBird observation data using DuckDB SQL queries across 20+ years of bird species data.',
-        longDescription: 'Analyzed 47GB of eBird observation data using DuckDB SQL queries to examine 4 bird species in California across 20+ years. Built comprehensive SQL analysis framework covering urban species adaptation, endangered species recovery, and climate resilience patterns.',
+        description: 'Analyzed 47GB of eBird observation data using DuckDB SQL queries to examine 4 bird species in California across 20+ years (2005-2025). Built SQL analysis framework covering urban species adaptation (House Finch vs House Sparrow), endangered species recovery (Ridgway\'s Rail), and endemic species climate resilience (Yellow-billed Magpie). Measured 4,456% population increase (390 to 17,758 birds) and 3,880% locality expansion for Ridgway\'s Rail, and House Finch dominance (87.1% vs 12.9%) over House Sparrow in urban environments.',
+        longDescription: 'Comprehensive large-scale data analytics project focusing on wildlife population trends and environmental adaptation patterns. Used DuckDB CLI for query execution and output analysis, processing decades of observational data to identify significant ecological changes and species behavior patterns.',
         category: 'data-engineering',
-        technologies: ['DuckDB', 'SQL', 'Python', 'Data Analysis'],
+        technologies: ['DuckDB', 'SQL', 'Python', 'Data Analysis', 'CLI'],
         image: 'project2.jpg',
-        githubUrl: 'https://github.com/yvnnhong/ebird-duckdb-analytics',
-        liveUrl: 'https://github.com/yvnnhong/ebird-duckdb-analytics',
+        githubUrl: 'https://github.com/yvnnhong/ebird-sql-duckdb-analytics',
+        liveUrl: 'https://github.com/yvnnhong/ebird-sql-duckdb-analytics',
         featured: true,
-      },
-      {
-        id: 3,
-        title: 'Automated ETL Data Pipeline',
-        description: 'Python-based ETL pipeline using pandas, SQLite, and gspread-pandas processing multiple partner datasets and reducing manual processing time by 85%.',
-        longDescription: 'Built reusable ETL pipeline using Python, pandas, SQLite, and gspread-pandas to process multiple partner datasets. Automated complete DataFrame workflows across dozens of data sources with comprehensive logging and error handling.',
-        category: 'data-engineering',
-        technologies: ['Python', 'pandas', 'SQLite', 'gspread-pandas', 'ETL', 'Data Processing'],
-        image: 'project3.jpg',
-        githubUrl: 'https://github.com/yvnnhong/automated-etl-pipeline',
-        liveUrl: 'https://github.com/yvnnhong/automated-etl-pipeline',
-        featured: false,
-      },
-      {
-        id: 4,
-        title: 'Machine Learning Anomaly Detection',
-        description: 'Statistical anomaly detection system using Z-score analysis and Python visualization libraries with polynomial regression models (R² = 0.969).',
-        longDescription: 'Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn) with polynomial regression. Implemented statistical anomaly detection using Z-score analysis and Python visualization libraries for real-time data processing.',
-        category: 'ml',
-        technologies: ['Python', 'scikit-learn', 'pandas', 'NumPy', 'matplotlib', 'seaborn', 'Statistical Analysis'],
-        image: 'project4.jpg',
-        githubUrl: 'https://github.com/yvnnhong/ml-anomaly-detection',
-        liveUrl: 'https://github.com/yvnnhong/ml-anomaly-detection',
-        featured: false,
-      },
-      {
-        id: 5,
-        title: 'Real-time Data Streaming Platform',
-        description: 'Containerized microservices architecture for processing streaming data in real-time with JSON alerts and comprehensive monitoring.',
-        longDescription: 'Built containerized microservices architecture for real-time data streaming. Implemented comprehensive monitoring, alerting systems, and automated deployment pipelines using Docker and modern DevOps practices.',
-        category: 'data-engineering',
-        technologies: ['Docker', 'Microservices', 'Real-time Processing', 'JSON', 'DevOps', 'Monitoring'],
-        image: 'project5.jpg',
-        githubUrl: 'https://github.com/yvnnhong/realtime-streaming-platform',
-        liveUrl: 'https://github.com/yvnnhong/realtime-streaming-platform',
-        featured: false,
-      },
-      {
-        id: 6,
-        title: 'Large-Scale Species Population Analysis',
-        description: 'Data science project measuring 4,456% population increase and 3,880% locality expansion using advanced SQL queries and statistical analysis.',
-        longDescription: 'Conducted comprehensive species population analysis using advanced SQL queries and statistical methods. Analyzed population trends, geographic distribution changes, and environmental impact factors across multiple decades of observation data.',
-        category: 'ml',
-        technologies: ['SQL', 'Statistical Analysis', 'Data Science', 'Python', 'Population Modeling'],
-        image: 'project6.jpg',
-        githubUrl: 'https://github.com/yvnnhong/species-population-analysis',
-        liveUrl: 'https://github.com/yvnnhong/species-population-analysis',
-        featured: false,
       },
     ]
     
@@ -155,7 +107,7 @@ const Projects = () => {
         initial="hidden"
         animate="show"
       >
-        {filteredProjects.slice(0, 6).map((project) => (
+        {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </motion.div>
@@ -171,6 +123,7 @@ const ProjectCard = ({ project }) => {
         show: { opacity: 1, y: 0 }
       }}
       className={styles.projectCard}
+      data-category={project.category}
     >
       <div className={styles.projectCardInner}>
         <div className={styles.projectImageContainer}>

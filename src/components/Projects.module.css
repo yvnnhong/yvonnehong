@@ -64,24 +64,23 @@
   font-size: 1rem;
 }
 
-/* Projects Grid */
+/* Projects Grid - Updated for 2 projects */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
   padding: 0 var(--space-md);
 }
 
 .projectCard {
-  aspect-ratio: 1 / 1;
   border-radius: var(--border-radius-lg);
   transition: var(--transition-normal);
   box-shadow: var(--shadow-md);
   position: relative;
   z-index: 1;
+  min-height: 500px; /* Increased minimum height */
 }
 
 .projectCardInner {
@@ -104,10 +103,11 @@
 
 /* Project Image */
 .projectImageContainer {
-  height: 40%;
+  height: 200px; /* Fixed height instead of percentage */
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #1a2332, #0f1419);
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .projectImagePlaceholder {
@@ -195,14 +195,13 @@
   box-shadow: 0 0 20px rgba(100, 255, 218, 0.6);
 }
 
-/* Project Content */
+/* Project Content - Fixed to prevent cutoff */
 .projectContent {
   padding: var(--space-lg);
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  max-height: 60%;
+  min-height: 0; /* Allow flex item to shrink */
 }
 
 .projectHeader {
@@ -211,6 +210,7 @@
   align-items: flex-start;
   margin-bottom: var(--space-sm);
   gap: var(--space-sm);
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .projectTitle {
@@ -237,6 +237,7 @@
   box-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
 }
 
+/* Fixed description container to prevent cutoff */
 .projectDescription {
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
@@ -244,6 +245,8 @@
   flex: 1;
   font-size: var(--font-sm);
   overflow-y: auto;
+  min-height: 0; /* Allow scrolling if needed */
+  max-height: none; /* Remove height restriction */
 }
 
 .projectDescription p {
@@ -255,6 +258,8 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
+  flex-shrink: 0; /* Prevent tags from shrinking */
+  padding-top: var(--space-sm);
 }
 
 .techTag {
@@ -302,16 +307,19 @@
 @media (max-width: 1024px) {
   .projectsGrid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     gap: 24px;
+  }
+  
+  .projectCard {
+    min-height: 450px;
   }
 }
 
 @media (max-width: 768px) {
   .projectsGrid {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, 1fr);
     gap: 20px;
+    max-width: 500px;
   }
 
   .filterButtons {
@@ -335,6 +343,10 @@
   .projectTitle {
     font-size: var(--font-md);
   }
+  
+  .projectCard {
+    min-height: 400px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -349,5 +361,9 @@
   .pageSubtitle {
     font-size: var(--font-sm);
     padding: 0 var(--space-sm);
+  }
+  
+  .projectCard {
+    min-height: 350px;
   }
 }
