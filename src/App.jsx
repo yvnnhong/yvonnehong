@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Projects from './components/Projects'
+import Github from './components/Github'
 import Resume from './components/Resume'
 import Contact from './components/Contact'
 import VantaBirdsBackground from './components/VantaBirdsBackground'
@@ -59,7 +59,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/home" replace />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
+                <Route path="/github" element={<Github />} />
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<Navigate to="/home" replace />} />

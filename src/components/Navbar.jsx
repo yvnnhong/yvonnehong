@@ -55,7 +55,7 @@ const Navbar = () => {
           >
             <NavItem to="/home" label="Home" end />
             <NavItem to="/resume" label="Resume" />
-            <NavItem to="/projects" label="Projects" />
+            <NavItem to="/github" label="Github" />
             <NavItem to="/contact" label="Contact" />
           </motion.ul>
         </nav>
