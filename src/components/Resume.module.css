@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--background-light), var(--background-dark));
+  background: linear-gradient(135deg, #1a2332, #0f1419);
   overflow: hidden;
 }
 
@@ -340,7 +340,7 @@
   font-size: var(--font-md);
 }
 
-/* Skills Tab - Updated without progress bars */
+/* Skills Tab */
 .skillsContent {
   display: flex;
   flex-direction: column;
@@ -370,7 +370,6 @@
   border-radius: 2px;
 }
 
-/* New skill cards to replace progress bars */
 .skillCards {
   display: flex;
   flex-wrap: wrap;
@@ -443,6 +442,11 @@
 .languageLevel {
   font-size: var(--font-xs);
   color: var(--primary);
+}
+
+/* Projects Tab specific styles */
+.projectsTab {
+  /* Inherits from timeline styles above */
 }
 
 /* Responsive Adjustments */

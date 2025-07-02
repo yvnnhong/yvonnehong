@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaChartLine, FaCode, FaBrain } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaDatabase, FaCode, FaBrain, FaCogs } from 'react-icons/fa'
 import styles from './Projects.module.css'
 
 const Projects = () => {
@@ -8,66 +8,78 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   
   useEffect(() => {
-    // Simulated project data - in a real app, this could come from an API
+    // ML and Data Engineering focused projects
     const projectsData = [
       {
         id: 1,
-        title: 'Risk Parity Portfolio Optimization Model',
-        description: 'A Python-based risk parity optimizer using CVXPY and Q-learning RL, with Alpha Vantage data and backtesting for risk-adjusted returns.',
-        longDescription: 'Engineered a convex optimization-based portfolio allocation algorithm that equalizes risk contribution across all assets using robust covariance estimation. Implemented a reinforcement learning component with Q-learning that dynamically adjusts portfolio weights based on changing market conditions.',
-        category: 'finance',
-        technologies: ['Python', 'CVXPY', 'Pandas', 'Alpha Vantage API', 'Reinforcement Learning'],
+        title: 'eBird Java Kafka Stream Processor',
+        description: 'Real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with machine learning models achieving 100% precision and 96.9% recall.',
+        longDescription: 'Engineered a real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation. Built end-to-end data pipeline processing 47GB eBird dataset with DuckDB SQL analysis, Python CSV processing, synthetic data generation, and real-time streaming.',
+        category: 'data-engineering',
+        technologies: ['Java', 'Apache Kafka', 'Docker', 'Python', 'SQL', 'DuckDB', 'Maven'],
         image: 'project1.jpg',
-        githubUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model/blob/main/risk_parity_portfolio_optimization_model.ipynb',
-        liveUrl: 'https://github.com/yvnnhong/risk-parity-portfolio-optimization-model/blob/main/risk_parity_portfolio_optimization_model.ipynb',
-        featured: false,
+        githubUrl: 'https://github.com/yvnnhong/ebird-kafka-processor',
+        liveUrl: 'https://github.com/yvnnhong/ebird-kafka-processor',
+        featured: true,
       },
       {
         id: 2,
-        title: 'Cross-Asset Volatility Arbitrage Engine',
-        description: 'A volatility arbitrage strategy exploiting mispricings between related asset pairs, using z-scores for signal generation and CVXPY for portfolio optimization.',
-        longDescription: 'Developed a systematic volatility arbitrage engine that identifies and exploits mispricings between related asset pairs. The system uses rolling z-scores to generate trading signals and implements a CVXPY optimization framework for optimal capital allocation with transaction cost modeling.',
-        category: 'finance',
-        technologies: ['Python', 'CVXPY', 'Pandas', 'Matplotlib', 'Statistical Analysis'],
+        title: 'eBird SQL DuckDB Analytics',
+        description: 'Large-scale data analytics project analyzing 47GB of eBird observation data using DuckDB SQL queries across 20+ years of bird species data.',
+        longDescription: 'Analyzed 47GB of eBird observation data using DuckDB SQL queries to examine 4 bird species in California across 20+ years. Built comprehensive SQL analysis framework covering urban species adaptation, endangered species recovery, and climate resilience patterns.',
+        category: 'data-engineering',
+        technologies: ['DuckDB', 'SQL', 'Python', 'Data Analysis'],
         image: 'project2.jpg',
-        githubUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
-        liveUrl: 'https://github.com/yvnnhong/cross-asset-volatility-arbitrage-engine',
-        featured: false,
+        githubUrl: 'https://github.com/yvnnhong/ebird-duckdb-analytics',
+        liveUrl: 'https://github.com/yvnnhong/ebird-duckdb-analytics',
+        featured: true,
       },
       {
         id: 3,
-        title: 'Quantitative Portfolio Strategy SMA Backtester',
-        description: 'A Python-based stock portfolio system using SMA-driven trading to optimize risk-adjusted returns, with yfinance data and Matplotlib visualizations.',
-        longDescription: 'Built a comprehensive backtesting framework for evaluating moving average crossover strategies across multiple assets. The system calculates risk metrics including Sharpe ratio, Sortino ratio, and maximum drawdown while visualizing equity curves and portfolio composition over time.',
-        category: 'finance',
-        technologies: ['Python', 'Pandas', 'yfinance', 'Matplotlib', 'NumPy'],
+        title: 'Automated ETL Data Pipeline',
+        description: 'Python-based ETL pipeline using pandas, SQLite, and gspread-pandas processing multiple partner datasets and reducing manual processing time by 85%.',
+        longDescription: 'Built reusable ETL pipeline using Python, pandas, SQLite, and gspread-pandas to process multiple partner datasets. Automated complete DataFrame workflows across dozens of data sources with comprehensive logging and error handling.',
+        category: 'data-engineering',
+        technologies: ['Python', 'pandas', 'SQLite', 'gspread-pandas', 'ETL', 'Data Processing'],
         image: 'project3.jpg',
-        githubUrl: 'https://github.com/yvnnhong/quantitative-portfolio-strategy-backtester/blob/main/improved_quantitative_portfolio_strategy_backtester.ipynb',
-        liveUrl: 'https://github.com/yvnnhong/quantitative-portfolio-strategy-backtester/blob/main/improved_quantitative_portfolio_strategy_backtester.ipynb',
+        githubUrl: 'https://github.com/yvnnhong/automated-etl-pipeline',
+        liveUrl: 'https://github.com/yvnnhong/automated-etl-pipeline',
         featured: false,
       },
       {
         id: 4,
-        title: 'Rolling Factor Model for Alpha Attribution',
-        description: 'A rolling Fama-French 5-factor + momentum model for estimating dynamic alpha and betas, with an optimized factor timing strategy and robust data pipeline.',
-        longDescription: 'Created a time-varying factor model that captures dynamic exposures to market risk factors. The model incorporates Fama-French factors plus momentum and implements a factor timing strategy that adjusts positions based on factor strength signals while accounting for transaction costs.',
-        category: 'finance',
-        technologies: ['Python', 'Pandas', 'statsmodels', 'yfinance', 'Seaborn'],
+        title: 'Machine Learning Anomaly Detection',
+        description: 'Statistical anomaly detection system using Z-score analysis and Python visualization libraries with polynomial regression models (R² = 0.969).',
+        longDescription: 'Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn) with polynomial regression. Implemented statistical anomaly detection using Z-score analysis and Python visualization libraries for real-time data processing.',
+        category: 'ml',
+        technologies: ['Python', 'scikit-learn', 'pandas', 'NumPy', 'matplotlib', 'seaborn', 'Statistical Analysis'],
         image: 'project4.jpg',
-        githubUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution/blob/main/rolling_factor_model_alpha_attribution.ipynb',
-        liveUrl: 'https://github.com/yvnnhong/rolling-factor-model-alpha-attribution/blob/main/rolling_factor_model_alpha_attribution.ipynb',
+        githubUrl: 'https://github.com/yvnnhong/ml-anomaly-detection',
+        liveUrl: 'https://github.com/yvnnhong/ml-anomaly-detection',
         featured: false,
       },
       {
         id: 5,
-        title: 'Bayesian Kriegspiel Chess Agent',
-        description: 'A probabilistic chess agent using Bayesian networks and inference to handle uncertainty in Kriegspiel variant, with Stockfish integration.',
-        longDescription: 'Designed a Bayesian inference-based chess agent for Kriegspiel, a chess variant with imperfect information. The system uses probabilistic belief states to track possible game configurations and integrates with Stockfish to evaluate positions and select optimal moves in an uncertain environment.',
-        category: 'ml',
-        technologies: ['Python', 'Bayesian Networks', 'Stockfish', 'Game Theory', 'MCMC'],
+        title: 'Real-time Data Streaming Platform',
+        description: 'Containerized microservices architecture for processing streaming data in real-time with JSON alerts and comprehensive monitoring.',
+        longDescription: 'Built containerized microservices architecture for real-time data streaming. Implemented comprehensive monitoring, alerting systems, and automated deployment pipelines using Docker and modern DevOps practices.',
+        category: 'data-engineering',
+        technologies: ['Docker', 'Microservices', 'Real-time Processing', 'JSON', 'DevOps', 'Monitoring'],
         image: 'project5.jpg',
-        githubUrl: 'https://github.com/yvnnhong/bayesian-kriegspiel-chess',
-        liveUrl: 'https://github.com/yvnnhong/bayesian-kriegspiel-chess',
+        githubUrl: 'https://github.com/yvnnhong/realtime-streaming-platform',
+        liveUrl: 'https://github.com/yvnnhong/realtime-streaming-platform',
+        featured: false,
+      },
+      {
+        id: 6,
+        title: 'Large-Scale Species Population Analysis',
+        description: 'Data science project measuring 4,456% population increase and 3,880% locality expansion using advanced SQL queries and statistical analysis.',
+        longDescription: 'Conducted comprehensive species population analysis using advanced SQL queries and statistical methods. Analyzed population trends, geographic distribution changes, and environmental impact factors across multiple decades of observation data.',
+        category: 'ml',
+        technologies: ['SQL', 'Statistical Analysis', 'Data Science', 'Python', 'Population Modeling'],
+        image: 'project6.jpg',
+        githubUrl: 'https://github.com/yvnnhong/species-population-analysis',
+        liveUrl: 'https://github.com/yvnnhong/species-population-analysis',
         featured: false,
       },
     ]
@@ -97,7 +109,7 @@ const Projects = () => {
           My <span className="text-gradient">Projects</span>
         </h1>
         <p className={styles.pageSubtitle}>
-          A collection of my quantitative finance and machine learning projects
+          A collection of my machine learning and data engineering projects
         </p>
       </motion.div>
 
@@ -114,11 +126,11 @@ const Projects = () => {
           All Projects
         </button>
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'finance' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('finance')}
+          className={`${styles.filterButton} ${selectedCategory === 'data-engineering' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('data-engineering')}
         >
-          <FaChartLine className={styles.buttonIcon} />
-          Quantitative Finance
+          <FaDatabase className={styles.buttonIcon} />
+          Data Engineering
         </button>
         <button 
           className={`${styles.filterButton} ${selectedCategory === 'ml' ? styles.active : ''}`}
@@ -163,13 +175,15 @@ const ProjectCard = ({ project }) => {
       <div className={styles.projectCardInner}>
         <div className={styles.projectImageContainer}>
           <div className={styles.projectImagePlaceholder}>
-            {project.category === 'finance' ? (
-              <FaChartLine className={styles.projectIcon} />
+            {project.category === 'data-engineering' ? (
+              <FaDatabase className={styles.projectIcon} />
+            ) : project.category === 'ml' ? (
+              <FaBrain className={styles.projectIcon} />
             ) : (
-              <FaCode className={styles.projectIcon} />
+              <FaCogs className={styles.projectIcon} />
             )}
             <span className={styles.projectInitials}>
-              {project.title.split(' ').map(word => word[0]).join('')}
+              {project.title.split(' ').map(word => word[0]).join('').substring(0, 3)}
             </span>
           </div>
           
