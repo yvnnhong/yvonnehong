@@ -107,9 +107,6 @@ const Projects = () => {
         <h1 className={styles.pageTitle}>
           My <span className="text-gradient">Github</span>
         </h1>
-        <p className={styles.pageSubtitle}>
-          Production-ready data engineering and machine learning projects with measurable impact
-        </p>
       </motion.div>
 
       <motion.div 
