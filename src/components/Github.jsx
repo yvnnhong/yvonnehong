@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaDatabase, FaCode, FaBrain, FaCogs, FaChartLine, FaRocket, FaAward, FaClock } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaDatabase, FaCode, FaBrain, FaCogs, FaChartLine, FaRocket, FaAward, FaClock, FaFlask } from 'react-icons/fa'
 import styles from './Github.module.css'
 
 const Projects = () => {
   const [projects, setProjects] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('data-science')
   
   useEffect(() => {
     // Your actual projects with detailed results and metrics
@@ -34,7 +34,7 @@ const Projects = () => {
           timespan: '20 Years (2005-2024)',
           focus: 'Mourning Dove Population Analysis'
         },
-        category: 'data-engineering',
+        category: 'data-engineering-ml',
         githubUrl: 'https://github.com/yvnnhong/ebird-java-kafka-stream-processor',
         featured: true,
       },
@@ -79,7 +79,7 @@ const Projects = () => {
             insight: 'Endemic species climate adaptation capacity'
           }
         ],
-        category: 'data-engineering',
+        category: 'data-science',
         githubUrl: 'https://github.com/yvnnhong/ebird-sql-duckdb-analytics',
         featured: true,
       },
@@ -88,9 +88,7 @@ const Projects = () => {
     setProjects(projectsData)
   }, [])
   
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  const filteredProjects = projects.filter(project => project.category === selectedCategory)
   
   return (
     <motion.div
@@ -121,25 +119,18 @@ const Projects = () => {
         className={styles.filterButtons}
       >
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'all' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('all')}
+          className={`${styles.filterButton} ${selectedCategory === 'data-science' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('data-science')}
         >
-          <FaGithub className={styles.buttonIcon} />
-          All Repositories
+          <FaFlask className={styles.buttonIcon} />
+          Data Science
         </button>
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'data-engineering' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('data-engineering')}
-        >
-          <FaDatabase className={styles.buttonIcon} />
-          Data Engineering
-        </button>
-        <button 
-          className={`${styles.filterButton} ${selectedCategory === 'ml' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('ml')}
+          className={`${styles.filterButton} ${selectedCategory === 'data-engineering-ml' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('data-engineering-ml')}
         >
           <FaBrain className={styles.buttonIcon} />
-          Machine Learning
+          Data Engineering & ML
         </button>
       </motion.div>
 
