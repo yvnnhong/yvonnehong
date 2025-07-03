@@ -66,7 +66,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className={styles.ctaButtons}
           >
-            <Link to="/projects" className={styles.primaryBtn}>
+            <Link to="/github" className={styles.primaryBtn}>
               <FaRocket />
               Explore My Projects
             </Link>
