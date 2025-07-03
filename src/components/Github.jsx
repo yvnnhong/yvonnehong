@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaDatabase, FaCode, FaBrain, FaCogs, FaChartLine, FaRocket, FaAward, FaClock, FaFlask } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaDatabase, FaCode, FaBrain, FaCogs, FaChartLine, FaRocket, FaAward, FaClock, FaFlask, FaPlay, FaEye, FaStar } from 'react-icons/fa'
 import styles from './Github.module.css'
 
 const Projects = () => {
@@ -167,110 +167,137 @@ const ProjectCard = ({ project }) => {
       data-category={project.category}
     >
       <div className={styles.projectCardInner}>
-        {/* Header Section */}
-        <div className={styles.projectHeader}>
-          <div className={styles.projectTitleSection}>
-            <h3 className={styles.projectTitle}>{project.title}</h3>
+        {/* Hero Section */}
+        <div className={styles.heroSection}>
+          <div className={styles.heroContent}>
+            <div className={styles.titleBadgeContainer}>
+              {project.featured && (
+                <span className={styles.featuredBadge}>
+                  <FaStar /> Featured Project
+                </span>
+              )}
+            </div>
+            <h2 className={styles.projectTitle}>{project.title}</h2>
             <p className={styles.projectSubtitle}>{project.subtitle}</p>
-          </div>
-          <div className={styles.projectActions}>
-            {project.featured && (
-              <span className={styles.featuredBadge}>
-                <FaAward /> Featured
-              </span>
-            )}
-            <a 
-              href={project.githubUrl} 
-              className={styles.githubButton} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="View on GitHub"
-            >
-              <FaGithub />
-              <span>View Code</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className={styles.projectDescription}>
-          <p>{project.description}</p>
-        </div>
-
-        {/* Key Metrics */}
-        <div className={styles.metricsSection}>
-          <h4 className={styles.sectionTitle}>
-            <FaChartLine /> Key Metrics
-          </h4>
-          <div className={styles.metricsGrid}>
-            <div className={styles.metric}>
-              <span className={styles.metricLabel}>Data Processed</span>
-              <span className={styles.metricValue}>{project.metrics.dataProcessed}</span>
-            </div>
-            <div className={styles.metric}>
-              <span className={styles.metricLabel}>Scope</span>
-              <span className={styles.metricValue}>{project.metrics.scope || project.metrics.observations}</span>
-            </div>
-            <div className={styles.metric}>
-              <span className={styles.metricLabel}>Timespan</span>
-              <span className={styles.metricValue}>{project.metrics.timespan}</span>
-            </div>
-            <div className={styles.metric}>
-              <span className={styles.metricLabel}>Focus</span>
-              <span className={styles.metricValue}>{project.metrics.focus}</span>
+            <p className={styles.projectDescription}>{project.description}</p>
+            
+            <div className={styles.heroActions}>
+              <a 
+                href={project.githubUrl} 
+                className={styles.primaryButton} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+                <span>View Repository</span>
+              </a>
+              <button className={styles.secondaryButton}>
+                <FaPlay />
+                <span>Live Demo</span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Performance Highlights */}
-        <div className={styles.highlightsSection}>
-          <h4 className={styles.sectionTitle}>
-            <FaRocket /> Performance Highlights
-          </h4>
-          <div className={styles.highlightsList}>
-            {project.highlights.map((highlight, index) => (
-              <div key={index} className={styles.highlight}>
-                <span className={styles.highlightBullet}>●</span>
-                {highlight}
+        {/* Stats Overview */}
+        <div className={styles.statsSection}>
+          <div className={styles.statsGrid}>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <FaDatabase />
               </div>
-            ))}
+              <div className={styles.statContent}>
+                <div className={styles.statValue}>{project.metrics.dataProcessed}</div>
+                <div className={styles.statLabel}>Data Processed</div>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <FaClock />
+              </div>
+              <div className={styles.statContent}>
+                <div className={styles.statValue}>{project.metrics.timespan}</div>
+                <div className={styles.statLabel}>Time Span</div>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <FaEye />
+              </div>
+              <div className={styles.statContent}>
+                <div className={styles.statValue}>{project.metrics.scope || project.metrics.observations}</div>
+                <div className={styles.statLabel}>Scope</div>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <FaChartLine />
+              </div>
+              <div className={styles.statContent}>
+                <div className={styles.statValue}>{project.metrics.focus}</div>
+                <div className={styles.statLabel}>Focus Area</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Special Studies Section (for DuckDB project) */}
-        {project.studies && (
-          <div className={styles.studiesSection}>
-            <h4 className={styles.sectionTitle}>
-              <FaBrain /> Research Studies
-            </h4>
-            <div className={styles.studiesList}>
-              {project.studies.map((study, index) => (
-                <div key={index} className={styles.study}>
-                  <div className={styles.studyTitle}>{study.title}</div>
-                  <div className={styles.studyResult}>{study.result}</div>
-                  <div className={styles.studyInsight}>{study.insight}</div>
+        {/* Content Grid */}
+        <div className={styles.contentGrid}>
+          {/* Performance Highlights */}
+          <div className={styles.contentSection}>
+            <div className={styles.sectionHeader}>
+              <FaRocket className={styles.sectionIcon} />
+              <h3 className={styles.sectionTitle}>Key Achievements</h3>
+            </div>
+            <div className={styles.highlightsList}>
+              {project.highlights.map((highlight, index) => (
+                <div key={index} className={styles.highlightItem}>
+                  <div className={styles.highlightBullet}></div>
+                  <span className={styles.highlightText}>{highlight}</span>
                 </div>
               ))}
             </div>
           </div>
-        )}
 
-        {/* Technology Stack */}
-        <div className={styles.techSection}>
-          <h4 className={styles.sectionTitle}>
-            <FaCogs /> Technology Stack
-          </h4>
-          <div className={styles.techStacks}>
-            {Object.entries(project.techStack).map(([category, techs]) => (
-              <div key={category} className={styles.techCategory}>
-                <span className={styles.techCategoryLabel}>{category}</span>
-                <div className={styles.techTags}>
-                  {techs.map((tech, index) => (
-                    <span key={index} className={styles.techTag}>{tech}</span>
-                  ))}
-                </div>
+          {/* Research Studies */}
+          {project.studies && (
+            <div className={styles.contentSection}>
+              <div className={styles.sectionHeader}>
+                <FaBrain className={styles.sectionIcon} />
+                <h3 className={styles.sectionTitle}>Research Studies</h3>
               </div>
-            ))}
+              <div className={styles.studiesContainer}>
+                {project.studies.map((study, index) => (
+                  <div key={index} className={styles.studyCard}>
+                    <div className={styles.studyHeader}>
+                      <h4 className={styles.studyTitle}>{study.title}</h4>
+                    </div>
+                    <div className={styles.studyResult}>{study.result}</div>
+                    <div className={styles.studyInsight}>{study.insight}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Technology Stack */}
+          <div className={styles.contentSection}>
+            <div className={styles.sectionHeader}>
+              <FaCogs className={styles.sectionIcon} />
+              <h3 className={styles.sectionTitle}>Technology Stack</h3>
+            </div>
+            <div className={styles.techContainer}>
+              {Object.entries(project.techStack).map(([category, techs]) => (
+                <div key={category} className={styles.techGroup}>
+                  <div className={styles.techCategoryLabel}>{category}</div>
+                  <div className={styles.techTags}>
+                    {techs.map((tech, index) => (
+                      <span key={index} className={styles.techTag}>{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
