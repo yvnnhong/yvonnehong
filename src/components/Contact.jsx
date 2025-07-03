@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub, FaDatabase, FaBrain, FaRocket } from 'react-icons/fa'
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -30,7 +30,7 @@ const Contact = () => {
         className={styles.contactHeader}
       >
         <h1 className={styles.pageTitle}>
-          Get In Touch <span className="text-gradient">With Me</span>
+          Contact <span className="text-gradient">Me!</span>
         </h1>
       </motion.div>
 
@@ -51,12 +51,11 @@ const Contact = () => {
           animate="visible"
         >
           <motion.div className={styles.infoHeader} variants={fadeInUp}>
-            <h2>Let's Talk Quant Finance!</h2>
             <p>
-              I'm actively seeking my next challenge in quantitative finance — ideally with a 
-              high-performing team in New York City. With a strong background in statistical 
-              modeling, convex optimization, and multivariate stochastic processes, I'm ready to contribute from day one. 
-              Feel free to reach out to me directly at{' '}
+              I'm actively seeking opportunities in data engineering and machine learning — 
+              ideally with innovative teams building scalable data solutions. With expertise in 
+              real-time streaming, anomaly detection, and large-scale data processing, I'm ready 
+              to tackle complex data challenges. Feel free to reach out to me directly at{' '}
               <a href="mailto:yvonneh.nyc@gmail.com" className={styles.emailLink}>
                 yvonneh.nyc@gmail.com
               </a>
@@ -77,8 +76,7 @@ const Contact = () => {
               title="Location"
               content={
                 <>
-                  📍 Currently in La Jolla, CA<br />
-                  🗽 NYC preferred, open to relocation
+                  📍 San Diego, CA<br />
                 </>
               }
               link="https://maps.google.com"
@@ -93,6 +91,27 @@ const Contact = () => {
               delay={0.2}
             />
           </div>
+
+          <motion.div className={styles.expertiseHighlight} variants={fadeInUp}>
+            <h3>What I Bring to the Table</h3>
+            <div className={styles.skillsGrid}>
+              <div className={styles.skillCard}>
+                <FaDatabase className={styles.skillIcon} />
+                <h4>Data Engineering</h4>
+                <p>Apache Kafka, DuckDB, ETL pipelines, SQL optimization</p>
+              </div>
+              <div className={styles.skillCard}>
+                <FaBrain className={styles.skillIcon} />
+                <h4>Machine Learning</h4>
+                <p>Python, scikit-learn, anomaly detection, statistical modeling</p>
+              </div>
+              <div className={styles.skillCard}>
+                <FaRocket className={styles.skillIcon} />
+                <h4>Real-time Systems</h4>
+                <p>Streaming data, containerized microservices, 98.4% F1-score</p>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.div className={styles.socialLinks} variants={fadeInUp}>
             <h3>Connect with me</h3>
