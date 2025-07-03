@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaChartLine } from 'react-icons/fa'
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
@@ -33,19 +32,6 @@ const Navbar = () => {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <NavLink to="/home" className={styles.logo}>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={styles.logoContent}
-          >
-            <FaChartLine className={styles.logoIcon} />
-            <span className={styles.logoMain}>YH</span>
-            <span className={styles.logoText}>Yvonne Hong</span>
-          </motion.div>
-        </NavLink>
-        
         <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
           <motion.ul 
             className={styles.navList}

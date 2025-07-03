@@ -25,64 +25,9 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 0 var(--space-lg);
-}
-
-/* Logo Styling */
-.logo {
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 110;
-}
-
-.logoContent {
-  display: flex;
-  align-items: center;
-}
-
-.logoIcon {
-  color: var(--primary);
-  font-size: 1.25rem;
-  margin-right: 0.5rem;
-  animation: pulse 3s infinite;
-}
-
-.logoMain {
-  font-size: var(--font-lg);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-right: var(--space-sm);
-  position: relative;
-}
-
-.logoMain::after {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--secondary);
-  bottom: 2px;
-  right: -8px;
-}
-
-.logoText {
-  font-size: var(--font-sm);
-  font-weight: 500;
-  color: var(--text-secondary);
-  display: inline-block;
-  transition: var(--transition-fast);
-  letter-spacing: 0.5px;
-}
-
-.logo:hover .logoText {
-  color: var(--text-primary);
 }
 
 /* Navigation Menu */
@@ -199,14 +144,11 @@
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--space-md);
+    justify-content: space-between;
   }
 
   .mobileMenuToggle {
     display: flex;
-  }
-
-  .logoText {
-    display: none;
   }
 
   .nav {
