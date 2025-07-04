@@ -33,7 +33,7 @@ import screenshot1 from '../assets/screenshot_1.png'
 import screenshot2 from '../assets/screenshot_2.png'
 import screenshot3 from '../assets/screenshot_3.png'
 import screenshotAnomaly from '../assets/screenshot_with_anomaly_and_number.png'
-import pipelineAnalysisResults from '../assets/pipeline_analysis_results.png'
+import smaImageWebsite from '../assets/sma_image_website.png'
 import styles from './Github.module.css'
 
 const Projects = () => {
@@ -119,8 +119,8 @@ const Projects = () => {
           {
             title: 'Performance Analysis Dashboard',
             description: 'Comprehensive visualization showing confusion matrix, Z-score analysis, and seasonal breeding patterns',
-            image: pipelineAnalysisResults,
-            filename: 'pipeline_analysis_results.png'
+            image: smaImageWebsite,
+            filename: 'sma_image_website.png'
           },
           {
             title: 'High-Severity Anomaly Detection',
@@ -295,13 +295,6 @@ const ProjectCard = ({ project }) => {
         {/* Hero Section */}
         <div className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <div className={styles.titleBadgeContainer}>
-              {project.featured && (
-                <span className={styles.featuredBadge}>
-                  <FaStar /> Featured Project
-                </span>
-              )}
-            </div>
             <h2 className={styles.projectTitle}>{project.title}</h2>
             <p className={styles.projectSubtitle}>{project.subtitle}</p>
             <p className={styles.projectDescription}>{project.description}</p>
@@ -309,17 +302,13 @@ const ProjectCard = ({ project }) => {
             <div className={styles.heroActions}>
               <a 
                 href={project.githubUrl} 
-                className={styles.primaryButton} 
+                className={styles.repositoryButton} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <FaGithub />
                 <span>View Repository</span>
               </a>
-              <button className={styles.secondaryButton}>
-                <FaPlay />
-                <span>Live Demo</span>
-              </button>
             </div>
           </div>
         </div>

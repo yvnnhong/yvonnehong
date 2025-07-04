@@ -1,4 +1,33 @@
-/* Base Container */
+.projectTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.projectSubtitle {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.projectDescription {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}/* Base Container */
 .projectsContainer {
   padding: 3rem 0;
   position: relative;
@@ -136,105 +165,55 @@
   text-align: center;
 }
 
-.titleBadgeContainer {
-  margin-bottom: 1rem;
-}
-
-.featuredBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--background-dark);
-  padding: 0.5rem 1rem;
-  border-radius: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
-}
-
-.projectTitle {
-  font-size: 2rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin: 0 0 0.5rem 0;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-.projectSubtitle {
-  font-size: 1.1rem;
-  color: var(--primary);
-  margin: 0 0 1.5rem 0;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.projectDescription {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 2rem 0;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .heroActions {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-.primaryButton {
-  display: flex;
+.repositoryButton {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--background-dark);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-.primaryButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+.repositoryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
 }
 
-.secondaryButton {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.repositoryButton:hover::before {
+  left: 100%;
 }
 
-.secondaryButton:hover {
-  background: var(--primary);
+.repositoryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
   color: var(--background-dark);
-  transform: translateY(-2px);
+}
+
+.repositoryButton svg {
+  font-size: 1.1rem;
 }
 
 /* Stats Section */
@@ -978,14 +957,14 @@
   }
   
   .heroActions {
-    flex-direction: column;
-    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
   
-  .primaryButton,
-  .secondaryButton {
+  .repositoryButton {
     width: 100%;
     justify-content: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
   
   .performanceGrid {
