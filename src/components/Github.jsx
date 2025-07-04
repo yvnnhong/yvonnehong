@@ -33,7 +33,7 @@ import screenshot1 from '../assets/screenshot_1.png'
 import screenshot2 from '../assets/screenshot_2.png'
 import screenshot3 from '../assets/screenshot_3.png'
 import screenshotAnomaly from '../assets/screenshot_with_anomaly_and_number.png'
-import smaImageWebsite from '../assets/sma_image_website.png'
+import pipelineAnalysisResults from '../assets/pipeline_analysis_results.png'
 import styles from './Github.module.css'
 
 const Projects = () => {
@@ -119,8 +119,8 @@ const Projects = () => {
           {
             title: 'Performance Analysis Dashboard',
             description: 'Comprehensive visualization showing confusion matrix, Z-score analysis, and seasonal breeding patterns',
-            image: smaImageWebsite,
-            filename: 'sma_image_website.png'
+            image: pipelineAnalysisResults,
+            filename: 'pipeline_analysis_results.png'
           },
           {
             title: 'High-Severity Anomaly Detection',
