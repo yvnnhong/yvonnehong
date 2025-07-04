@@ -26,7 +26,9 @@ import {
   FaBolt,
   FaChartArea,
   FaCloudUploadAlt,
-  FaBriefcase
+  FaBriefcase,
+  FaExpand,
+  FaTimes
 } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import screenshot1 from '../assets/screenshot_1.png'
@@ -39,6 +41,7 @@ import styles from './Github.module.css'
 const Projects = () => {
   const [projects, setProjects] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('data-science')
+  const [expandedImage, setExpandedImage] = useState(null)
   
   useEffect(() => {
     // Your actual projects with detailed results and metrics
@@ -225,6 +228,25 @@ const Projects = () => {
   }, [])
   
   const filteredProjects = projects.filter(project => project.category === selectedCategory)
+
+  const handleExpandImage = (imageData) => {
+    setExpandedImage(imageData)
+  }
+
+  const handleCloseImage = () => {
+    setExpandedImage(null)
+  }
+
+  // Close on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && expandedImage) {
+        handleCloseImage()
+      }
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [expandedImage])
   
   return (
     <motion.div
@@ -273,15 +295,60 @@ const Projects = () => {
       <div className={styles.projectsGrid}>
         <AnimatePresence mode="wait">
           {filteredProjects.map((project) => (
-            <ProjectCard key={`${selectedCategory}-${project.id}`} project={project} />
+            <ProjectCard 
+              key={`${selectedCategory}-${project.id}`} 
+              project={project}
+              onExpandImage={handleExpandImage}
+            />
           ))}
         </AnimatePresence>
       </div>
+
+      {/* Image Lightbox */}
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className={styles.lightboxOverlay}
+            onClick={handleCloseImage}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className={styles.lightboxContainer}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className={styles.lightboxClose}
+                onClick={handleCloseImage}
+              >
+                <FaTimes />
+              </button>
+              <div className={styles.lightboxImageContainer}>
+                <img 
+                  src={expandedImage.image} 
+                  alt={expandedImage.title}
+                  className={styles.lightboxImage}
+                />
+              </div>
+              <div className={styles.lightboxInfo}>
+                <h3 className={styles.lightboxTitle}>{expandedImage.title}</h3>
+                <p className={styles.lightboxDescription}>{expandedImage.description}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, onExpandImage }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -458,6 +525,13 @@ const ProjectCard = ({ project }) => {
                       alt={screenshot.title}
                       className={styles.screenshotImage}
                     />
+                    <button 
+                      className={styles.expandButton}
+                      onClick={() => onExpandImage(screenshot)}
+                      title="Expand image"
+                    >
+                      <FaExpand />
+                    </button>
                   </div>
                   <div className={styles.screenshotContent}>
                     <h4 className={styles.screenshotTitle}>{screenshot.title}</h4>
