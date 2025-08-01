@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub, FaDatabase, FaBrain, FaRocket } from 'react-icons/fa'
+import profilePic from '../assets/profile_pic.png'
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -30,8 +31,11 @@ const Contact = () => {
         className={styles.contactHeader}
       >
         <h1 className={styles.pageTitle}>
-          Contact <span className="text-gradient">Me!</span>
+          Contact <span className={styles.textGradient}>Me!</span>
         </h1>
+        <p className={styles.pageSubtitle}>
+          Let's build something amazing together
+        </p>
       </motion.div>
 
       <div className={styles.contactContent}>
@@ -50,12 +54,21 @@ const Contact = () => {
           initial="hidden"
           animate="visible"
         >
+          <motion.div className={styles.profileSection} variants={fadeInUp}>
+            <div className={styles.profileWrapper}>
+              <img src={profilePic} alt="Yvonne Hong" className={styles.profileImage} />
+            </div>
+            <div className={styles.profileInfo}>
+              <h2>Yvonne Hong</h2>
+              <p className={styles.profileTitle}>Machine Learning Engineer</p>
+            </div>
+          </motion.div>
+
           <motion.div className={styles.infoHeader} variants={fadeInUp}>
             <p>
-              I'm actively seeking opportunities in data engineering and machine learning — 
-              ideally with innovative teams building scalable data solutions. With expertise in 
-              real-time streaming, anomaly detection, and large-scale data processing, I'm ready 
-              to tackle complex data challenges. Feel free to reach out to me directly at{' '}
+              I'm actively seeking opportunities in machine learning engineering; specifically,
+              creating applied AI/ML solutions addressing real-world problems. 
+              Feel free to reach out to me directly at{' '}
               <a href="mailto:yvonneh.nyc@gmail.com" className={styles.emailLink}>
                 yvonneh.nyc@gmail.com
               </a>
@@ -74,21 +87,9 @@ const Contact = () => {
             <ContactCard 
               icon={<FaMapMarkerAlt />}
               title="Location"
-              content={
-                <>
-                  📍 San Diego, CA<br />
-                </>
-              }
+              content="San Diego, CA"
               link="https://maps.google.com"
               delay={0.1}
-            />
-            
-            <ContactCard 
-              icon={<FaPhone />}
-              title="Phone"
-              content="(858)-214-7354"
-              link="tel:8582147354"
-              delay={0.2}
             />
           </div>
 
@@ -96,19 +97,18 @@ const Contact = () => {
             <h3>What I Bring to the Table</h3>
             <div className={styles.skillsGrid}>
               <div className={styles.skillCard}>
-                <FaDatabase className={styles.skillIcon} />
-                <h4>Data Engineering</h4>
-                <p>Apache Kafka, DuckDB, ETL pipelines, SQL optimization</p>
-              </div>
-              <div className={styles.skillCard}>
                 <FaBrain className={styles.skillIcon} />
-                <h4>Machine Learning</h4>
-                <p>Python, scikit-learn, anomaly detection, statistical modeling</p>
+                <div className={styles.skillContent}>
+                  <h4>Machine Learning</h4>
+                  <p>tensorflow, pytorch & deep learning</p>
+                </div>
               </div>
               <div className={styles.skillCard}>
                 <FaRocket className={styles.skillIcon} />
-                <h4>Real-time Systems</h4>
-                <p>Streaming data, containerized microservices, 98.4% F1-score</p>
+                <div className={styles.skillContent}>
+                  <h4>Real-time Systems</h4>
+                  <p>MLOps pipelines, streaming data, & containerized microservices</p>
+                </div>
               </div>
             </div>
           </motion.div>
