@@ -55,7 +55,7 @@ const Home = () => {
             className={styles.heroMetadata}
           >
             <span className={styles.metaTag}>ML ENGINEER</span>
-            <span className={styles.metaTag}>MLOps Pipelines</span>
+            <span className={styles.metaTag}>Computer Vision</span>
           </motion.div>
           
           <motion.h1

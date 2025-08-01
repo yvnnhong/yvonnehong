@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaCode, FaDatabase, FaMobile, FaServer, FaTools, FaChartLine, FaUniversity, FaLaptopCode, FaCogs, FaCloud } from 'react-icons/fa'
-import profilePic from '../assets/profile_pic.png' // Make sure this file path is correct
+import { FaCode, FaBrain, FaUniversity, FaLaptopCode, FaCogs, FaEye, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa'
+import profilePic from '../assets/profile_pic.png'
 import styles from './Resume.module.css'
 
 const Resume = () => {
@@ -20,12 +20,13 @@ const Resume = () => {
     exit: { opacity: 0, y: -20 }
   }
   
-  // Skills data
+  // Skills data - ML focused
   const skills = {
-    programming: ['Python', 'Java', 'C/C++', 'JavaScript/TypeScript', 'SQL'],
-    dataEngineering: ['Apache Kafka', 'Docker', 'DuckDB', 'SQLite', 'MongoDB', 'ETL Pipelines'],
-    machineLearning: ['pandas', 'NumPy', 'scikit-learn', 'matplotlib', 'seaborn', 'TensorFlow'],
-    cloud: ['AWS', 'Google Cloud Platform', 'Supabase', 'Render']
+    programming: ['Python', 'Java', 'C/C++', 'SQL', 'JavaScript'],
+    machineLearning: ['TensorFlow', 'PyTorch', 'scikit-learn', 'pandas', 'NumPy'],
+    deepLearning: ['Computer Vision', 'Multi-task Learning', 'Ensemble Methods', 'Attention Mechanisms'],
+    nlp: ['Hugging Face', 'spaCy', 'NLTK', 'Large Language Models', 'Generative AI'],
+    tools: ['Docker', 'FastAPI', 'OpenCV', 'PIL/Pillow', 'Model Quantization']
   }
   
   return (
@@ -43,7 +44,7 @@ const Resume = () => {
           transition={{ duration: 0.6 }}
           className={styles.pageTitle}
         >
-          My <span className="text-gradient">Resume</span>
+          My <span className={styles.textGradient}>Resume</span>
         </motion.h1>
         
         <motion.p
@@ -52,7 +53,7 @@ const Resume = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className={styles.pageSubtitle}
         >
-          Machine Learning Engineer & Data Engineering Specialist
+          Check out my experience, projects, and tech stack!
         </motion.p>
       </div>
       
@@ -65,27 +66,26 @@ const Resume = () => {
             transition={{ duration: 0.6 }}
           >
             <div className={styles.profileImageWrapper}>
-              <div className={styles.profileBorder}></div>
               <img src={profilePic} alt="Yvonne Hong" className={styles.profileImage} />
             </div>
             
             <div className={styles.profileInfo}>
               <h2>Yvonne Hong</h2>
-              <p className={styles.profileTitle}>ML Engineer & Data Specialist</p>
+              <p className={styles.profileTitle}>Machine Learning Engineering, Computer Vision, & Generative AI</p>
               
               <div className={styles.profileMetrics}>
                 <div className={styles.profileMetric}>
-                  <div className={styles.metricIcon}><FaDatabase /></div>
+                  <div className={styles.metricIcon}><FaBrain /></div>
                   <div className={styles.metricInfo}>
-                    <h4>47GB+</h4>
-                    <p>Data Processed</p>
+                    <h4>98.4%</h4>
+                    <p>F1-Score</p>
                   </div>
                 </div>
                 <div className={styles.profileMetric}>
-                  <div className={styles.metricIcon}><FaCogs /></div>
+                  <div className={styles.metricIcon}><FaRocket /></div>
                   <div className={styles.metricInfo}>
-                    <h4>85%</h4>
-                    <p>Efficiency Gain</p>
+                    <h4>3</h4>
+                    <p>ML Projects</p>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ const Resume = () => {
                 className={`${styles.tabButton} ${activeTab === 'experience' ? styles.active : ''}`}
                 onClick={() => setActiveTab('experience')}
               >
-                <FaDatabase />
+                <FaLaptopCode />
                 <span>Experience</span>
               </button>
               <button 
@@ -121,7 +121,7 @@ const Resume = () => {
                 className={`${styles.tabButton} ${activeTab === 'skills' ? styles.active : ''}`}
                 onClick={() => setActiveTab('skills')}
               >
-                <FaTools />
+                <FaCogs />
                 <span>Skills</span>
               </button>
             </div>
@@ -147,14 +147,9 @@ const Resume = () => {
                         <div className={styles.courseList}>
                           <h5>Relevant Coursework:</h5>
                           <ul>
-                            <li>Machine Learning Algorithms, Reinforcement Learning</li>
-                            <li>Data Structures & Algorithms (C++, C, Java, Python)</li>
-                            <li>Probability & Statistics, Stochastic Processes</li>
-                            <li>Applied & Computational Linear Algebra, Numerical Analysis</li>
-                            <li>Artificial Intelligence: Probabilistic Reasoning & Decision-Making</li>
-                            <li>Systems Programming (C, UNIX, gdb, valgrind)</li>
-                            <li>Theory of Computability (Formal Languages, Turing Machines)</li>
-                            <li>Discrete Math & Combinatorics</li>
+                            <li>Machine Learning Algorithms, Artificial Intelligence: Probabilistic Reasoning & Decision-Making</li>
+                            <li>Design & Analysis of Algorithms, Advanced Data Structures</li>
+                            <li>Probability & Statistics, Applied & Computational Linear Algebra</li>
                           </ul>
                         </div>
                       </div>
@@ -174,7 +169,7 @@ const Resume = () => {
                 >
                   <div className={styles.timelineWrapper}>
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaDatabase /></div>
+                      <div className={styles.timelineIcon}><FaLaptopCode /></div>
                       <div className={styles.timelineContent}>
                         <div className={styles.timelinePeriod}>Jul 2024 - Sep 2024</div>
                         <h3>Data Engineering Intern</h3>
@@ -184,18 +179,6 @@ const Resume = () => {
                           <li>Executed SQL queries via Python across multiple databases to retrieve grouped DataFrames, partitioning datasets by TVL, contact frequency, and partner type into 50+ segmented CSV files</li>
                           <li>Automated complete DataFrame workflows (Google Sheets → pandas → SQLite tables → segmented Google Sheets) across dozens of data sources, reducing manual processing time by 85%</li>
                           <li>Configured Python logging.basicConfig with timestamp formatting to track DataFrame .shape validation, sqlite3 operations, and error handling throughout pipeline execution</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaChartLine /></div>
-                      <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>Oct 2021 - Dec 2021</div>
-                        <h3>Financial Analyst Intern</h3>
-                        <h4>Sagepoint Financial (San Diego, CA)</h4>
-                        <ul className={styles.experienceList}>
-                          <li>Conducted in-depth analysis of mutual funds, equities, and real estate using Morningstar to optimize client portfolio performance</li>
                         </ul>
                       </div>
                     </div>
@@ -214,30 +197,45 @@ const Resume = () => {
                 >
                   <div className={styles.timelineWrapper}>
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaCode /></div>
+                      <div className={styles.timelineIcon}><FaLightbulb /></div>
+                      <div className={styles.timelineContent}>
+                        <div className={styles.timelinePeriod}>July 2025</div>
+                        <h3>QA RAG MLops Pipeline</h3>
+                        <h4>TensorFlow, Hugging Face, RAG, Generative AI</h4>
+                        <ul className={styles.experienceList}>
+                          <li>Built production-ready RAG system using TensorFlow, Hugging Face Transformers, and Large Language Models for document Q&A with ChromaDB and Pinecone vector databases, implementing semantic search, cosine similarity, and prompt engineering</li>
+                          <li>Engineered NLP pipeline with spaCy, NLTK, sentence-transformers for 384-dimensional vector embeddings, PDF extraction, text chunking, OpenAI API, local Hugging Face models, retrieval augmentation, and embedding optimization</li>
+                          <li>Developed MLOps architecture with Docker containerization, FastAPI REST APIs, Streamlit/Gradio interfaces, implementing vector database storage, model versioning, performance monitoring, batch processing, error handling, and logging infrastructure</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className={styles.timelineItem}>
+                      <div className={styles.timelineIcon}><FaEye /></div>
+                      <div className={styles.timelineContent}>
+                        <div className={styles.timelinePeriod}>July 2025</div>
+                        <h3>Multi-Task Food Classification System</h3>
+                        <h4>PyTorch, OpenCV, Gradio, Computer Vision</h4>
+                        <ul className={styles.experienceList}>
+                          <li>Built multi-task CNN system using PyTorch for food classification (101 classes), cuisine detection (13 categories), and nutrition regression, implementing ResNet50 with task-specific attention mechanisms, focal loss, data augmentation, hyperparameter tuning, multi-task loss weighting, uncertainty-weighted optimization, and attention mechanisms implementation</li>
+                          <li>Developed 4 CNN architectures including custom networks with depthwise separable convolutions, ensemble methods (weighted, stacked, mixture of experts), attention layers using PIL/Pillow and albumentations, dilated convolutions, Bayesian Model Averaging, uncertainty quantification, temperature scaling, model ensemble averaging, and attention visualization</li>
+                          <li>Engineered production ML pipeline with FastAPI, Gradio interface, PyTorch model quantization, CUDA optimization, comprehensive benchmarking utilities, cross-platform deployment (ONNX, TorchScript, CoreML), model versioning, performance monitoring, real-time inference APIs, model switching capabilities, checkpoint management, and containerized deployment</li>
+                          <li>Implemented ensemble techniques with gating networks, cross-modal attention fusion, mobile deployment optimization using OpenCV and scikit-learn evaluation metrics, gradient clipping, learning rate scheduling, early stopping, and MLOps architecture</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className={styles.timelineItem}>
+                      <div className={styles.timelineIcon}><FaChartLine /></div>
                       <div className={styles.timelineContent}>
                         <div className={styles.timelinePeriod}>June 2025</div>
                         <h3>eBird Java Kafka Stream Processor</h3>
                         <h4>Java, Kafka, Docker, Python, SQL, DuckDB</h4>
                         <ul className={styles.experienceList}>
                           <li>Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation, achieving 100% precision and 96.9% recall on 1,000+ synthetic observations</li>
-                          <li>Processed 47GB eBird dataset using SQL and DuckDB to extract Mourning Dove population trends across 20 years (2005-2024), analyzing 174,422+ bird observations and 34,963+ individual records</li>
-                          <li>Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn) with polynomial regression (R² = 0.969), generating synthetic observations with realistic seasonal breeding patterns</li>
-                          <li>Implemented statistical anomaly detection using Z-score analysis and Python visualization libraries (matplotlib, seaborn), processing streaming data in real-time through containerized microservices architecture</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaDatabase /></div>
-                      <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>June 2025</div>
-                        <h3>eBird SQL DuckDB Analytics</h3>
-                        <h4>DuckDB, SQL</h4>
-                        <ul className={styles.experienceList}>
-                          <li>Analyzed 47GB of eBird observation data using DuckDB SQL queries to examine 4 bird species in California across 20+ years (2005-2025)</li>
-                          <li>Built SQL analysis framework covering urban species adaptation (House Finch vs House Sparrow), endangered species recovery (Ridgway's Rail), and endemic species climate resilience (Yellow-billed Magpie)</li>
-                          <li>Measured 4,456% population increase (390 to 17,758 birds) and 3,880% locality expansion for Ridgway's Rail, and House Finch dominance (87.1% vs 12.9%) over House Sparrow in urban environments</li>
+                          <li>Processed 47GB eBird dataset using SQL and DuckDB to extract Mourning Dove population trends across 20 years (2005-2024), analyzing 174,422+ bird observations and 34,963+ individual records for baseline establishment and breeding pattern analysis</li>
+                          <li>Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn, seaborn) with polynomial regression (R² = 0.969), generating synthetic observations with realistic seasonal breeding patterns</li>
+                          <li>Built end-to-end data pipeline (47GB eBird dataset → DuckDB SQL analysis → Python CSV processing → synthetic data generation → Kafka streaming → real-time anomaly detection → JSON alerts) with Maven build automation</li>
                         </ul>
                       </div>
                     </div>
@@ -274,25 +272,7 @@ const Resume = () => {
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Data Engineering & ML</h3>
-                      <div className={styles.skillCards}>
-                        {skills.dataEngineering.map((skill, index) => (
-                          <motion.div 
-                            key={skill}
-                            className={styles.skillCard}
-                            custom={index}
-                            variants={fadeIn}
-                            initial="initial"
-                            animate="animate"
-                          >
-                            {skill}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className={styles.skillSection}>
-                      <h3>Machine Learning Libraries</h3>
+                      <h3>Machine Learning & Deep Learning</h3>
                       <div className={styles.skillCards}>
                         {skills.machineLearning.map((skill, index) => (
                           <motion.div 
@@ -310,9 +290,9 @@ const Resume = () => {
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Cloud & Infrastructure</h3>
+                      <h3>Computer Vision & Neural Networks</h3>
                       <div className={styles.skillCards}>
-                        {skills.cloud.map((skill, index) => (
+                        {skills.deepLearning.map((skill, index) => (
                           <motion.div 
                             key={skill}
                             className={styles.skillCard}
@@ -328,44 +308,38 @@ const Resume = () => {
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Web Technologies</h3>
-                      <div className={styles.techTags}>
-                        <span className={styles.techTag}>React.js</span>
-                        <span className={styles.techTag}>Node.js</span>
-                        <span className={styles.techTag}>Express.js</span>
-                        <span className={styles.techTag}>Next.js</span>
-                        <span className={styles.techTag}>Flask</span>
-                        <span className={styles.techTag}>RESTful APIs</span>
-                        <span className={styles.techTag}>WebSockets</span>
-                        <span className={styles.techTag}>JSON Web Tokens</span>
-                        <span className={styles.techTag}>HTML/CSS</span>
-                        <span className={styles.techTag}>Tailwind CSS</span>
+                      <h3>NLP & Generative AI</h3>
+                      <div className={styles.skillCards}>
+                        {skills.nlp.map((skill, index) => (
+                          <motion.div 
+                            key={skill}
+                            className={styles.skillCard}
+                            custom={index}
+                            variants={fadeIn}
+                            initial="initial"
+                            animate="animate"
+                          >
+                            {skill}
+                          </motion.div>
+                        ))}
                       </div>
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Developer Tools</h3>
-                      <div className={styles.techTags}>
-                        <span className={styles.techTag}>Git/CI-CD</span>
-                        <span className={styles.techTag}>Postman</span>
-                        <span className={styles.techTag}>MATLAB</span>
-                        <span className={styles.techTag}>UNIX</span>
-                        <span className={styles.techTag}>gdb</span>
-                        <span className={styles.techTag}>valgrind</span>
-                      </div>
-                    </div>
-                    
-                    <div className={styles.skillSection}>
-                      <h3>Spoken Languages</h3>
-                      <div className={styles.languages}>
-                        <div className={styles.language}>
-                          <span className={styles.languageName}>English</span>
-                          <span className={styles.languageLevel}>Native</span>
-                        </div>
-                        <div className={styles.language}>
-                          <span className={styles.languageName}>Chinese</span>
-                          <span className={styles.languageLevel}>Fluent</span>
-                        </div>
+                      <h3>MLOps & Production Tools</h3>
+                      <div className={styles.skillCards}>
+                        {skills.tools.map((skill, index) => (
+                          <motion.div 
+                            key={skill}
+                            className={styles.skillCard}
+                            custom={index}
+                            variants={fadeIn}
+                            initial="initial"
+                            animate="animate"
+                          >
+                            {skill}
+                          </motion.div>
+                        ))}
                       </div>
                     </div>
                   </div>
