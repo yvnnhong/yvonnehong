@@ -1,3 +1,45 @@
+/*does this fix the css discrepancy between localhost vs deployed appearnce???*/
+/* Add this to the very top of your App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Set explicit base font size */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem; /* Explicit body font size */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*add root varibales here to see if it makes a diff???*/
+
+:root {
+  --base-font-size: 16px;
+  --scaling-factor: 1;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --scaling-factor: 0.9;
+  }
+}
+
+/*end root variable check*/
+
+/*END DISCREPANCY CHECK FIX --- delete everything above this line if no improvements*/
+
+
 .app {
   position: relative;
   min-height: 100vh;
