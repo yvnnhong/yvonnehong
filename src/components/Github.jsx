@@ -161,7 +161,7 @@ const Projects = () => {
           My <span className={styles.textGradient}>Projects</span>
         </h1>
         <p className={styles.pageSubtitle}>
-          Production-ready machine learning systems with measurable impact
+          Production-ready machine learning systems
         </p>
       </motion.div>
 
