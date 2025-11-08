@@ -25,6 +25,23 @@ const Projects = () => {
     const projectsData = [
       {
         id: 1,
+        title: 'Software Resume Optimizer',
+        subtitle: 'Built with PyTorch, Transformers, ChromaDB, NLP, Production ML. Private repo available to demo upon request.',
+        description: 'Developed a production-ready ML system using PyTorch, BERT-based transformers, and ChromaDB to optimize software engineer resumes against job descriptions by fine-tuning NLP models on 400 labeled resume-job pairs, engineering 80+ semantic and syntactic features, and deploying a real-time Gradio interface on Hugging Face Spaces.',
+        date: 'Sept 2025 - Nov 2025',
+        techStack: ['PyTorch', 'Scikit-Learn', 'Hugging Face Spaces','ChromaDB', 'spaCy NER', 'Docker Compose', 'Sentence Transformers', 'Pandas', 'Seaborn'],
+        highlights: [
+          '300 hand-labeled job-resume pairs for training data',
+          'Fine-tuned BERT-based sentence-transformers',
+          'Feature engineering pipeline extracting 80+ features',
+          'Demonstration of full ML lifecycle with hyperparameter tuning',
+          'Gradio interface that accepts a resume + desired job description'
+        ],
+        category: 'nlp',
+        featured: true,
+      },
+      {
+        id: 1,
         title: 'QA RAG MLops Pipeline',
         subtitle: 'Production-Ready Document Q&A System',
         description: 'Built production-ready RAG system using TensorFlow, Hugging Face Transformers, and Large Language Models for document Q&A with ChromaDB and Pinecone vector databases.',
