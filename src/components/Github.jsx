@@ -37,11 +37,33 @@ const Projects = () => {
           'Demonstration of full ML lifecycle with hyperparameter tuning',
           'Gradio interface that accepts a resume + desired job description'
         ],
+        features: [
+          {
+            title: 'LLM-Powered Data Generation',
+            description: 'Prompt-engineered LLMs to generate 400 diverse job descriptions with clean/noisy ATS data',
+            icon: <FaBrain />
+          },
+          {
+            title: 'Hand-Labeled Training Data',
+            description: '300 resume-job pairs annotated with domain-specific scoring rubrics across 5 dimensions',
+            icon: <FaLightbulb />
+          },
+          {
+            title: 'Hybrid NLP Feature Pipeline',
+              description: '80+ features via spaCy NER, TF-IDF, regex, and fine-tuned BERT sentence embeddings',
+              icon: <FaCode />
+          },
+          {
+            title: 'Production ML Deployment',
+            description: 'Gradio interface on Hugging Face Spaces with Docker, error handling, and real-time inference',
+            icon: <FaRocket />
+          }
+        ],
         category: 'nlp',
         featured: true,
       },
       {
-        id: 1,
+        id: 2,
         title: 'QA RAG MLops Pipeline',
         subtitle: 'Production-Ready Document Q&A System',
         description: 'Built production-ready RAG system using TensorFlow, Hugging Face Transformers, and Large Language Models for document Q&A with ChromaDB and Pinecone vector databases.',
@@ -78,7 +100,7 @@ const Projects = () => {
         featured: true,
       },
       {
-        id: 2,
+        id: 3,
         title: 'Multi-Task Food Classification System',
         subtitle: 'Advanced Computer Vision with PyTorch',
         description: 'Built multi-task CNN system using PyTorch for food classification (101 classes), cuisine detection (13 categories), and nutrition regression with ResNet50 architecture.',
@@ -115,7 +137,7 @@ const Projects = () => {
         featured: true,
       },
       {
-        id: 3,
+        id: 4,
         title: 'eBird Java Kafka Stream Processor',
         subtitle: 'Real-time Anomaly Detection Pipeline',
         description: 'Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker achieving 100% precision and 96.9% recall on 1,000+ synthetic observations.',
