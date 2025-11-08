@@ -21,7 +21,6 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   
   useEffect(() => {
-    // Your actual ML projects from resume
     const projectsData = [
       {
         id: 1,
@@ -50,8 +49,8 @@ const Projects = () => {
           },
           {
             title: 'Hybrid NLP Feature Pipeline',
-              description: '80+ features via spaCy NER, TF-IDF, regex, and fine-tuned BERT sentence embeddings',
-              icon: <FaCode />
+            description: '80+ features via spaCy NER, TF-IDF, regex, and fine-tuned BERT sentence embeddings',
+            icon: <FaCode />
           },
           {
             title: 'Production ML Deployment',
@@ -59,7 +58,7 @@ const Projects = () => {
             icon: <FaRocket />
           }
         ],
-        category: 'nlp',
+        categories: ['nlp', 'ml-engineering'], // MULTI-CATEGORY
         featured: true,
       },
       {
@@ -96,7 +95,7 @@ const Projects = () => {
           }
         ],
         githubUrl: 'https://github.com/yvnnhong/document-qa-rag-mlops-pipeline',
-        category: 'nlp',
+        categories: ['nlp', 'ml-engineering'], // MULTI-CATEGORY
         featured: true,
       },
       {
@@ -133,7 +132,7 @@ const Projects = () => {
           }
         ],
         githubUrl: 'https://github.com/yvnnhong/pytorch-computer-vision-food-analyzer',
-        category: 'computer-vision',
+        categories: ['computer-vision'], // Single for now
         featured: true,
       },
       {
@@ -170,7 +169,7 @@ const Projects = () => {
           }
         ],
         githubUrl: 'https://github.com/yvnnhong/ebird-java-kafka-stream-processor',
-        category: 'ml-engineering',
+        categories: ['ml-engineering'], // Could add 'data-pipeline' later
         featured: true,
       }
     ]
@@ -178,9 +177,10 @@ const Projects = () => {
     setProjects(projectsData)
   }, [])
   
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  // UPDATED FILTERING LOGIC FOR MULTI-CATEGORY
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
+    : projects.filter(project => project.categories.includes(selectedCategory))
 
   return (
     <motion.div
@@ -258,7 +258,7 @@ const ProjectCard = ({ project }) => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={styles.projectCard}
-      data-category={project.category}
+      data-category={project.categories.join(' ')} // Optional: for CSS targeting
     >
       <div className={styles.projectCardInner}>
         {/* Header */}
@@ -266,15 +266,19 @@ const ProjectCard = ({ project }) => {
           <div className={styles.projectMeta}>
             <span className={styles.projectDate}>{project.date}</span>
             <div className={styles.projectLinks}>
-              <a 
-                href={project.githubUrl} 
-                className={styles.projectLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                title="View Repository"
-              >
-                <FaGithub />
-              </a>
+              {project.githubUrl ? (
+                <a 
+                  href={project.githubUrl} 
+                  className={styles.projectLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="View Repository"
+                >
+                  <FaGithub />
+                </a>
+              ) : (
+                <span className={styles.privateRepo}>Private Repo</span>
+              )}
             </div>
           </div>
           
@@ -326,15 +330,21 @@ const ProjectCard = ({ project }) => {
 
         {/* Footer */}
         <div className={styles.projectFooter}>
-          <a 
-            href={project.githubUrl} 
-            className={styles.viewRepoButton} 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
-            View Repository
-          </a>
+          {project.githubUrl ? (
+            <a 
+              href={project.githubUrl} 
+              className={styles.viewRepoButton} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+              View Repository
+            </a>
+          ) : (
+            <span className={styles.viewRepoButton} style={{ opacity: 0.6 }}>
+              Private Repository
+            </span>
+          )}
         </div>
       </div>
     </motion.div>
