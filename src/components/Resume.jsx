@@ -84,7 +84,7 @@ const Resume = () => {
                 <div className={styles.profileMetric}>
                   <div className={styles.metricIcon}><FaRocket /></div>
                   <div className={styles.metricInfo}>
-                    <h4>3</h4>
+                    <h4>4</h4>
                     <p>ML Projects</p>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ const Resume = () => {
                         <ul className={styles.experienceList}>
                           <li>Built reusable ETL pipeline using Python, pandas, SQLite, and gspread-pandas to process multiple partner datasets, converting Google Sheets data into DataFrames to load into structured database tables</li>
                           <li>Executed SQL queries via Python across multiple databases to retrieve grouped DataFrames, partitioning datasets by TVL, contact frequency, and partner type into 50+ segmented CSV files</li>
-                          <li>Automated complete DataFrame workflows (Google Sheets → pandas → SQLite tables → segmented Google Sheets) across dozens of data sources, reducing manual processing time by 85%</li>
+                          <li>Automated complete DataFrame workflows (Google Sheets to pandas to SQLite tables to segmented Google Sheets) across dozens of data sources, reducing manual processing time by 85%</li>
                           <li>Configured Python logging.basicConfig with timestamp formatting to track DataFrame .shape validation, sqlite3 operations, and error handling throughout pipeline execution</li>
                         </ul>
                       </div>
@@ -196,6 +196,24 @@ const Resume = () => {
                   className={styles.projectsTab}
                 >
                   <div className={styles.timelineWrapper}>
+                    {/* NEW PROJECT - FIRST IN LIST */}
+                    <div className={styles.timelineItem}>
+                      <div className={styles.timelineIcon}><FaBrain /></div>
+                      <div className={styles.timelineContent}>
+                        <div className={styles.timelinePeriod}>Sept 2025 - Nov 2025</div>
+                        <h3>Software Resume Optimizer</h3>
+                        <h4>PyTorch, Transformers, ChromaDB, NLP, Production ML</h4>
+                        <ul className={styles.experienceList}>
+                          <li>Used LLMs to prompt engineer 400 diverse software engineer job descriptions, implementing data pipeline with clean/noisy data handling to train robust NLP models on real-world ATS inputs</li>
+                          <li>Hand-labeled 300 resume-job pairs using domain-specific scoring rubrics, creating ground truth dataset for supervised learning with labels for overall match, education, skills, projects, and experience scores</li>
+                          <li>Fine-tuned BERT-based sentence-transformers and trained PyTorch neural networks combining semantic embeddings with 80+ engineered features (TF-IDF, NER, regex patterns)</li>
+                          <li>Implemented feature engineering pipeline extracting 80+ features using spaCy NER, regex patterns, and TF-IDF vectorization, combined with cosine similarity scoring for semantic matching</li>
+                          <li>Built production ML pipeline with inference optimization, error handling, and deployed Gradio web interface to Hugging Face Spaces, serving real-time predictions</li>
+                          <li>Demonstrated full ML lifecycle: data collection, annotation, model training, evaluation (train/val/test), hyperparameter tuning, and production deployment with monitoring</li>
+                        </ul>
+                      </div>
+                    </div>
+
                     <div className={styles.timelineItem}>
                       <div className={styles.timelineIcon}><FaLightbulb /></div>
                       <div className={styles.timelineContent}>
@@ -235,7 +253,7 @@ const Resume = () => {
                           <li>Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation, achieving 100% precision and 96.9% recall on 1,000+ synthetic observations</li>
                           <li>Processed 47GB eBird dataset using SQL and DuckDB to extract Mourning Dove population trends across 20 years (2005-2024), analyzing 174,422+ bird observations and 34,963+ individual records for baseline establishment and breeding pattern analysis</li>
                           <li>Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn, seaborn) with polynomial regression (R² = 0.969), generating synthetic observations with realistic seasonal breeding patterns</li>
-                          <li>Built end-to-end data pipeline (47GB eBird dataset → DuckDB SQL analysis → Python CSV processing → synthetic data generation → Kafka streaming → real-time anomaly detection → JSON alerts) with Maven build automation</li>
+                          <li>Built end-to-end data pipeline (47GB eBird dataset to DuckDB SQL analysis to Python CSV processing to synthetic data generation to Kafka streaming to real-time anomaly detection to JSON alerts) with Maven build automation</li>
                         </ul>
                       </div>
                     </div>
