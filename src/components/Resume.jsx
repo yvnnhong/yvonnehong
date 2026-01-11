@@ -172,13 +172,20 @@ const Resume = () => {
                       <div className={styles.timelineIcon}><FaLaptopCode /></div>
                       <div className={styles.timelineContent}>
                         <div className={styles.timelinePeriod}>Jul 2024 - Sep 2024</div>
-                        <h3>Data Engineering Intern</h3>
-                        <h4>Tristero (Remote)</h4>
+                        <h3>Software Engineering Intern</h3>
+                        <h4>Tristero (San Diego)</h4>
                         <ul className={styles.experienceList}>
-                          <li>Built reusable ETL pipeline using Python, pandas, SQLite, and gspread-pandas to process multiple partner datasets, converting Google Sheets data into DataFrames to load into structured database tables</li>
-                          <li>Executed SQL queries via Python across multiple databases to retrieve grouped DataFrames, partitioning datasets by TVL, contact frequency, and partner type into 50+ segmented CSV files</li>
-                          <li>Automated complete DataFrame workflows (Google Sheets to pandas to SQLite tables to segmented Google Sheets) across dozens of data sources, reducing manual processing time by 85%</li>
-                          <li>Configured Python logging.basicConfig with timestamp formatting to track DataFrame .shape validation, sqlite3 operations, and error handling throughout pipeline execution</li>
+                          <li>Built scalable REST API with Python Flask serving 60+ endpoints, implementing PostgreSQL database with 12 normalized
+tables using SQLAlchemy ORM; designed complex relationships (1:N, M:N) with foreign key constraints and database indexes</li>
+                          <li>Created JWT-based authentication system with Flask-JWT-Extended generating stateless tokens, bcrypt password hashing,
+custom Python middleware decorators for role-based authorization, and Flask-CORS for secure cross-origin communication
+between decoupled frontend/backend services</li>
+                          <li>Implemented automated time tracking backend with Python datetime operations and PostgreSQL aggregate functions (SUM,
+COUNT, GROUP BY) for monthly payroll summaries; built expense approval workflow with SQLAlchemy ACID-compliant
+transactions ensuring data consistency across concurrent operations</li>
+                          <li>Deployed production-ready backend with Flask-Migrate for database version control, structured error handling with transaction
+rollbacks, and RESTful API design following HTTP best practices; modular codebase ready for Docker containerization and
+horizontal scaling</li>
                         </ul>
                       </div>
                     </div>
