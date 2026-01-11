@@ -211,12 +211,17 @@ horizontal scaling</li>
                         <h3>Software Resume Optimizer</h3>
                         <h4>PyTorch, Transformers, ChromaDB, NLP, Production ML</h4>
                         <ul className={styles.experienceList}>
-                          <li>Used LLMs to prompt engineer 400 diverse software engineer job descriptions, implementing data pipeline with clean/noisy data handling to train robust NLP models on real-world ATS inputs</li>
-                          <li>Hand-labeled 300 resume-job pairs using domain-specific scoring rubrics, creating ground truth dataset for supervised learning with labels for overall match, education, skills, projects, and experience scores</li>
-                          <li>Fine-tuned BERT-based sentence-transformers and trained PyTorch neural networks combining semantic embeddings with 80+ engineered features (TF-IDF, NER, regex patterns)</li>
-                          <li>Implemented feature engineering pipeline extracting 80+ features using spaCy NER, regex patterns, and TF-IDF vectorization, combined with cosine similarity scoring for semantic matching</li>
-                          <li>Built production ML pipeline with inference optimization, error handling, and deployed Gradio web interface to Hugging Face Spaces, serving real-time predictions</li>
-                          <li>Demonstrated full ML lifecycle: data collection, annotation, model training, evaluation (train/val/test), hyperparameter tuning, and production deployment with monitoring</li>
+                          <li>Built production ML pipeline deployed to Hugging Face Spaces via gradio that takes in a resume and a job description, and
+outputs a strength score for each resume section that determines the probability of meeting the requirements for the job.</li>
+                          <li>Hand-labeled 300 resume-job pairs using domain-specific scoring rubrics, creating ground truth dataset for supervised learning
+with labels for overall match, education, skills, projects, and experience scores</li>
+                          <li>Trained PyTorch neural networks combining semantic embeddings with 80+ engineered features (TF-IDF, spaCy NER, regex
+patterns), combined with cosine similarity scoring for semantic matching between resume and job embeddings</li>
+                          <li>Built comprehensive ML stack with scikit-learn (baseline models, evaluation metrics), ChromaDB (vector storage), pandas/NumPy
+(data processing), and PyMuPDF for PDF text extraction</li>
+                          <li>Achieved 31% MAE reduction over TF-IDF baseline on validation set (22.78 vs 33.06), demonstrating neural approach effectiveness
+for multi-output regression on resume-job matching with proper train/val/test methodology and early stopping to prevent
+overfitting</li>
                         </ul>
                       </div>
                     </div>
