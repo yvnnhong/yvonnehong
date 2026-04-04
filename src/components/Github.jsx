@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   FaGithub, 
-  FaExternalLinkAlt, 
-  FaBrain, 
-  FaCode, 
-  FaRocket, 
-  FaEye, 
-  FaLightbulb,
-  FaChartLine,
-  FaCogs,
+  FaExternalLinkAlt,
+  FaDatabase,
+  FaCloud,
   FaStream,
+  FaCogs,
+  FaLayerGroup,
+  FaChartLine,
   FaDocker,
   FaPython
 } from 'react-icons/fa'
@@ -24,152 +22,168 @@ const Projects = () => {
     const projectsData = [
       {
         id: 1,
-        title: 'Software Resume Optimizer',
-        subtitle: 'Built with PyTorch, Transformers, ChromaDB, NLP, Production ML. Private repo available to demo upon request.',
-        description: 'Developed a production-ready ML system using PyTorch, BERT-based transformers, and ChromaDB to optimize software engineer resumes against job descriptions by fine-tuning NLP models on 400 labeled resume-job pairs, engineering 80+ semantic and syntactic features, and deploying a real-time Gradio interface on Hugging Face Spaces.',
-        date: 'Sept 2025 - Nov 2025',
-        techStack: ['PyTorch', 'Scikit-Learn', 'Hugging Face Spaces','ChromaDB', 'spaCy NER', 'Docker Compose', 'Sentence Transformers', 'Pandas', 'Seaborn'],
+        title: 'TurtleTide',
+        subtitle: 'BigQuery · GCP Dataproc · Airflow · PySpark · dbt · Delta Lake · MLflow',
+        description: 'Weekly-automated data engineering pipeline tracking global sea turtle migration patterns — ingesting 1.5M+ OBIS occurrence records, detecting anomalous sighting patterns via STL seasonal decomposition, and surfacing findings through a live Streamlit dashboard.',
+        date: 'March 2026',
+        techStack: ['PySpark', 'GCP Dataproc', 'BigQuery', 'dbt Core', 'Delta Lake', 'Apache Airflow', 'MLflow', 'Terraform', 'Streamlit', 'GitHub Actions'],
         highlights: [
-          '300 hand-labeled job-resume pairs for training data',
-          'Fine-tuned BERT-based sentence-transformers',
-          'Feature engineering pipeline extracting 80+ features',
-          'Demonstration of full ML lifecycle with hyperparameter tuning',
-          'Gradio interface that accepts a resume + desired job description'
+          '1.5M+ raw occurrence records across 4 endangered species (Leatherback, Green, Loggerhead, Hawksbill)',
+          'Silver layer as Delta Lake on GCS — atomic commits, schema enforcement, deduplication',
+          '3 dbt SQL models with 7 data quality tests; CI/CD via GitHub Actions on every commit',
+          'STL anomaly detection per species per ocean basin — flags residuals > 2 std deviations',
+          'All experiment runs logged to MLflow with parameters, metrics, and per-basin artifacts',
+          '7-task Airflow DAG (@weekly) via Docker Compose; GCP infra provisioned with Terraform'
         ],
         features: [
           {
-            title: 'LLM-Powered Data Generation',
-            description: 'Prompt-engineered LLMs to generate 400 diverse job descriptions with clean/noisy ATS data',
-            icon: <FaBrain />
+            title: 'Chunked Paginated Ingestion',
+            description: '10K records/call from OBIS REST API across 4 species into Bronze layer on GCS',
+            icon: <FaDatabase />
           },
           {
-            title: 'Hand-Labeled Training Data',
-            description: '300 resume-job pairs annotated with domain-specific scoring rubrics across 5 dimensions',
-            icon: <FaLightbulb />
+            title: 'PySpark on Ephemeral Dataproc',
+            description: 'Clusters created at job start, deleted immediately after to minimize cost',
+            icon: <FaCloud />
           },
           {
-            title: 'Hybrid NLP Feature Pipeline',
-            description: '80+ features via spaCy NER, TF-IDF, regex, and fine-tuned BERT sentence embeddings',
-            icon: <FaCode />
+            title: 'dbt Silver → Gold',
+            description: 'stg_obis_occurrences → fct_turtle_sightings → rpt_basin_anomalies targeting BigQuery',
+            icon: <FaLayerGroup />
           },
           {
-            title: 'Production ML Deployment',
-            description: 'Gradio interface on Hugging Face Spaces with Docker, error handling, and real-time inference',
-            icon: <FaRocket />
+            title: 'STL Anomaly Detection',
+            description: 'Seasonal-Trend decomposition isolates genuine migration anomalies from normal cycles',
+            icon: <FaChartLine />
           }
         ],
-        categories: ['nlp', 'ml-engineering'], // MULTI-CATEGORY
+        liveUrl: 'https://turtletide.streamlit.app',
+        githubUrl: 'https://github.com/yvnnhong/turtletide',
+        categories: ['gcp', 'batch'],
         featured: true,
       },
       {
         id: 2,
-        title: 'QA RAG MLops Pipeline',
-        subtitle: 'Production-Ready Document Q&A System',
-        description: 'Built production-ready RAG system using TensorFlow, Hugging Face Transformers, and Large Language Models for document Q&A with ChromaDB and Pinecone vector databases.',
-        date: 'July 2025',
-        techStack: ['TensorFlow', 'Hugging Face', 'RAG', 'Generative AI', 'ChromaDB', 'Pinecone', 'spaCy', 'NLTK', 'Docker', 'FastAPI'],
+        title: 'MigrationPulse',
+        subtitle: 'Airflow · PySpark · dbt · Delta Lake · AWS S3 · MLflow',
+        description: 'Weekly-automated pipeline ingesting 9.4M+ GPS telemetry records from Movebank for 5 migratory bird species through a Bronze → Silver → Gold medallion architecture on AWS S3, with DTW corridor deviation detection surfaced via a live Streamlit dashboard.',
+        date: 'Jan – Feb 2026',
+        techStack: ['PySpark', 'AWS S3', 'Delta Lake', 'dbt Core', 'DuckDB', 'Apache Airflow', 'MLflow', 'Streamlit', 'GitHub Actions', 'Docker Compose'],
         highlights: [
-          'Semantic search with cosine similarity',
-          '384-dimensional vector embeddings',
-          'PDF extraction and text chunking',
-          'OpenAI API integration',
-          'MLOps architecture with Docker',
-          'Model versioning & monitoring',
-          'Streamlit/Gradio interfaces'
+          '9.4M+ GPS records across 5 species (Bald Eagle, Turkey Vulture, Snow Goose, Canada Goose, Mallard) and 123 individuals',
+          'Chunked ingestion via pandas chunksize handling 2.3GB+ datasets exceeding S3 single-upload limits',
+          'dbt Core on DuckDB — staging reads Delta Lake via delta scan() with pre-hook S3 secret injection',
+          'Sakoe-Chiba banded DTW — per-individual distance vs species template, flags > 2 std deviations',
+          '8-task Airflow DAG (@weekly) via Docker Compose — API health check through anomaly notification'
         ],
         features: [
           {
-            title: 'NLP Pipeline',
-            description: 'Advanced text processing with spaCy, NLTK, and sentence-transformers',
-            icon: <FaLightbulb />
+            title: 'Medallion Architecture on S3',
+            description: 'Bronze → Silver (Delta Lake) → Gold with atomic commits and schema enforcement',
+            icon: <FaLayerGroup />
           },
           {
-            title: 'Vector Database',
-            description: 'ChromaDB and Pinecone for efficient semantic search',
-            icon: <FaBrain />
+            title: 'DTW Anomaly Detection',
+            description: 'Sakoe-Chiba banded Dynamic Time Warping flags corridor deviations per individual',
+            icon: <FaChartLine />
           },
           {
-            title: 'MLOps Architecture',
-            description: 'Production deployment with Docker and FastAPI',
-            icon: <FaRocket />
+            title: 'dbt + DuckDB',
+            description: '3 SQL models, 6 data quality tests, delta_scan() reads directly from Delta Lake Silver',
+            icon: <FaDatabase />
+          },
+          {
+            title: 'Airflow Orchestration',
+            description: '8-task DAG running weekly via Docker Compose with MLflow experiment tracking',
+            icon: <FaStream />
           }
         ],
-        githubUrl: 'https://github.com/yvnnhong/document-qa-rag-mlops-pipeline',
-        categories: ['nlp', 'ml-engineering'], // MULTI-CATEGORY
+        liveUrl: 'https://migrationpulse.streamlit.app',
+        githubUrl: 'https://github.com/yvnnhong/migrationpulse',
+        categories: ['aws', 'batch'],
         featured: true,
       },
       {
         id: 3,
-        title: 'Multi-Task Food Classification System',
-        subtitle: 'Advanced Computer Vision with PyTorch',
-        description: 'Built multi-task CNN system using PyTorch for food classification (101 classes), cuisine detection (13 categories), and nutrition regression with ResNet50 architecture.',
-        date: 'July 2025',
-        techStack: ['PyTorch', 'OpenCV', 'Gradio', 'Computer Vision', 'ResNet50', 'PIL/Pillow', 'CUDA', 'FastAPI'],
+        title: 'Beaver Watershed Pipeline',
+        subtitle: 'AWS Step Functions · Lambda · S3 · RDS PostgreSQL · Streamlit',
+        description: 'Weekly-automated AWS data pipeline spatially joining 39,900+ GBIF beaver sightings with USGS water quality data across 569 monitoring stations nationwide — with Isolation Forest anomaly detection and a live geospatial Streamlit dashboard.',
+        date: 'Dec 2025',
+        techStack: ['AWS Lambda', 'AWS Step Functions', 'S3', 'RDS PostgreSQL', 'Streamlit', 'scikit-learn', 'NumPy', 'Docker', 'Python'],
         highlights: [
-          '101 food classes classification',
-          '13 cuisine categories detection',
-          'Nutrition regression modeling',
-          'Task-specific attention mechanisms',
-          'Ensemble methods implementation',
-          'Cross-platform deployment',
-          'Real-time inference APIs'
+          '39,900+ beaver sightings spatially joined to 569 USGS stations via vectorized NumPy haversine',
+          'Matches each sighting to nearest station within 500km with per-parameter sentinel value filters',
+          '4-Lambda Step Functions workflow solving GBIF rate limiting — async download + Wait State + poller + processor',
+          'Reduced pipeline from timeout to 11 min end-to-end using free Wait State vs billable Lambda idle time',
+          'Isolation Forest with EPA climate region z-score normalization across 10 regional baselines',
+          'scikit-learn + scipy packaged into Linux-compatible Docker Lambda layer under 262MB AWS limit'
         ],
         features: [
           {
-            title: 'Multi-Task Learning',
-            description: 'Simultaneous food, cuisine, and nutrition prediction',
-            icon: <FaEye />
+            title: 'Async Step Functions',
+            description: '4-Lambda workflow with free Wait State solves GBIF rate limiting without idle Lambda cost',
+            icon: <FaCloud />
           },
           {
-            title: 'CNN Architectures',
-            description: '4 custom networks with attention mechanisms',
-            icon: <FaBrain />
+            title: 'Spatial Join at Scale',
+            description: 'Vectorized NumPy haversine matching 39,900+ sightings to nearest USGS station',
+            icon: <FaDatabase />
           },
           {
-            title: 'Production Pipeline',
-            description: 'ONNX, TorchScript, CoreML deployment',
-            icon: <FaCogs />
+            title: 'Isolation Forest Detection',
+            description: 'Anomaly scoring normalized within 10 EPA climate regions before scoring',
+            icon: <FaChartLine />
+          },
+          {
+            title: 'Docker Lambda Packaging',
+            description: 'scikit-learn + scipy stripped and packaged under the 262MB AWS Lambda layer limit',
+            icon: <FaDocker />
           }
         ],
-        githubUrl: 'https://github.com/yvnnhong/pytorch-computer-vision-food-analyzer',
-        categories: ['computer-vision'], // Single for now
+        liveUrl: 'https://beaverwatershed.streamlit.app',
+        githubUrl: 'https://github.com/yvnnhong/beaver-watershed-pipeline',
+        categories: ['aws', 'batch'],
         featured: true,
       },
       {
         id: 4,
-        title: 'eBird Java Kafka Stream Processor',
-        subtitle: 'Real-time Anomaly Detection Pipeline',
-        description: 'Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker achieving 100% precision and 96.9% recall on 1,000+ synthetic observations.',
-        date: 'June 2025',
-        techStack: ['Java', 'Kafka', 'Docker', 'Python', 'SQL', 'DuckDB', 'scikit-learn', 'Maven'],
+        title: 'eBird 47GB Big Data Processor',
+        subtitle: 'Java · Kafka · Docker · Python · SQL · DuckDB',
+        description: 'Real-time anomaly detection pipeline processing a 47GB eBird dataset with DuckDB and SQL, streaming 1,000+ synthetic observations via Kafka, achieving 100% precision, 96.9% recall, and 98.4% F1-score with zero false positives.',
+        date: 'May – Jul 2025',
+        techStack: ['Java 23', 'Apache Kafka', 'Docker Compose', 'DuckDB', 'SQL', 'Python', 'pandas', 'NumPy', 'scikit-learn', 'Maven'],
         highlights: [
-          '100% Precision (Zero False Positives)',
-          '96.9% Recall Performance',
-          '47GB eBird Dataset Processing',
-          '20 Years Temporal Analysis',
-          'R² = 0.969 Regression Model',
-          'Real-time Stream Processing',
-          'Containerized Deployment'
+          '100% precision, 96.9% recall (31/32 detected), 98.4% F1-score — zero false positives',
+          '47GB eBird dataset processed with DuckDB — 174,422+ observations over 20 years',
+          '447 San Diego Mourning Dove records used to train polynomial regression (R² = 0.969)',
+          '1,000+ synthetic observations with 32 injected anomalies streamed via Kafka producer',
+          'End-to-end: eBird → DuckDB → Python → Kafka → Java Streams → JSON alerts',
+          'Maven build automation, Docker Compose, fault-tolerant Kafka architecture'
         ],
         features: [
           {
-            title: 'Stream Processing',
-            description: 'Apache Kafka with Java 23 for real-time events',
+            title: 'Real-time Kafka Streaming',
+            description: 'Java 23 Kafka Streams consumer with Z-score anomaly detection, 1,000+ obs/session throughput',
             icon: <FaStream />
           },
           {
-            title: 'ML Analytics',
-            description: 'Statistical anomaly detection with Z-score analysis',
+            title: '47GB DuckDB Processing',
+            description: 'SQL analytics on full eBird dataset — 174,422+ observations, 20-year temporal analysis',
+            icon: <FaDatabase />
+          },
+          {
+            title: 'Polynomial Regression',
+            description: 'R² = 0.969 on 447 San Diego sightings for 2025 forecasting and seasonal modeling',
             icon: <FaChartLine />
           },
           {
-            title: 'Data Pipeline',
-            description: 'End-to-end ETL with DuckDB and containerization',
+            title: 'Containerized Pipeline',
+            description: 'Docker Compose + Maven end-to-end from raw dataset to real-time JSON alert output',
             icon: <FaDocker />
           }
         ],
         githubUrl: 'https://github.com/yvnnhong/ebird-java-kafka-stream-processor',
-        categories: ['ml-engineering'], // Could add 'data-pipeline' later
+        categories: ['streaming', 'batch'],
         featured: true,
       }
     ]
@@ -177,7 +191,6 @@ const Projects = () => {
     setProjects(projectsData)
   }, [])
   
-  // UPDATED FILTERING LOGIC FOR MULTI-CATEGORY
   const filteredProjects = selectedCategory === 'all'
     ? projects
     : projects.filter(project => project.categories.includes(selectedCategory))
@@ -200,7 +213,7 @@ const Projects = () => {
           My <span className={styles.textGradient}>Projects</span>
         </h1>
         <p className={styles.pageSubtitle}>
-          Production-ready machine learning systems
+          End-to-end data engineering pipelines — cloud, batch, and streaming
         </p>
       </motion.div>
 
@@ -217,22 +230,28 @@ const Projects = () => {
           All Projects
         </button>
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'nlp' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('nlp')}
+          className={`${styles.filterButton} ${selectedCategory === 'aws' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('aws')}
         >
-          NLP & RAG
+          AWS
         </button>
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'computer-vision' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('computer-vision')}
+          className={`${styles.filterButton} ${selectedCategory === 'gcp' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('gcp')}
         >
-          Computer Vision
+          GCP
         </button>
         <button 
-          className={`${styles.filterButton} ${selectedCategory === 'ml-engineering' ? styles.active : ''}`}
-          onClick={() => setSelectedCategory('ml-engineering')}
+          className={`${styles.filterButton} ${selectedCategory === 'batch' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('batch')}
         >
-          ML Engineering
+          Batch Pipelines
+        </button>
+        <button 
+          className={`${styles.filterButton} ${selectedCategory === 'streaming' ? styles.active : ''}`}
+          onClick={() => setSelectedCategory('streaming')}
+        >
+          Streaming
         </button>
       </motion.div>
 
@@ -258,7 +277,6 @@ const ProjectCard = ({ project }) => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={styles.projectCard}
-      data-category={project.categories.join(' ')} // Optional: for CSS targeting
     >
       <div className={styles.projectCardInner}>
         {/* Header */}
@@ -266,7 +284,7 @@ const ProjectCard = ({ project }) => {
           <div className={styles.projectMeta}>
             <span className={styles.projectDate}>{project.date}</span>
             <div className={styles.projectLinks}>
-              {project.githubUrl ? (
+              {project.githubUrl && (
                 <a 
                   href={project.githubUrl} 
                   className={styles.projectLink} 
@@ -276,8 +294,17 @@ const ProjectCard = ({ project }) => {
                 >
                   <FaGithub />
                 </a>
-              ) : (
-                <span className={styles.privateRepo}>Private Repo</span>
+              )}
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  className={styles.projectLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Live Demo"
+                >
+                  <FaExternalLinkAlt />
+                </a>
               )}
             </div>
           </div>
@@ -330,7 +357,7 @@ const ProjectCard = ({ project }) => {
 
         {/* Footer */}
         <div className={styles.projectFooter}>
-          {project.githubUrl ? (
+          {project.githubUrl && (
             <a 
               href={project.githubUrl} 
               className={styles.viewRepoButton} 
@@ -340,10 +367,17 @@ const ProjectCard = ({ project }) => {
               <FaGithub />
               View Repository
             </a>
-          ) : (
-            <span className={styles.viewRepoButton} style={{ opacity: 0.6 }}>
-              Private Repository
-            </span>
+          )}
+          {project.liveUrl && (
+            <a 
+              href={project.liveUrl} 
+              className={styles.liveDemoButton} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <FaExternalLinkAlt />
+              Live Demo
+            </a>
           )}
         </div>
       </div>

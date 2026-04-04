@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaCode, FaBrain, FaUniversity, FaLaptopCode, FaCogs, FaEye, FaLightbulb, FaRocket, FaChartLine } from 'react-icons/fa'
+import { FaCode, FaUniversity, FaLaptopCode, FaCogs, FaDatabase, FaCloud, FaStream, FaLayerGroup } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import styles from './Resume.module.css'
 
@@ -12,21 +12,17 @@ const Resume = () => {
     animate: (i) => ({ 
       opacity: 1, 
       y: 0,
-      transition: { 
-        duration: 0.5,
-        delay: i * 0.1
-      }
+      transition: { duration: 0.5, delay: i * 0.1 }
     }),
     exit: { opacity: 0, y: -20 }
   }
   
-  // Skills data - ML focused
   const skills = {
-    programming: ['Python', 'Java', 'C/C++', 'SQL', 'JavaScript'],
-    machineLearning: ['TensorFlow', 'PyTorch', 'scikit-learn', 'pandas', 'NumPy'],
-    deepLearning: ['Computer Vision', 'Multi-task Learning', 'Ensemble Methods', 'Attention Mechanisms'],
-    nlp: ['Hugging Face', 'spaCy', 'NLTK', 'Large Language Models', 'Generative AI'],
-    tools: ['Docker', 'FastAPI', 'OpenCV', 'PIL/Pillow', 'Model Quantization']
+    languages: ['Python', 'Java', 'C/C++', 'SQL'],
+    dataEngineering: ['AWS Lambda', 'AWS Glue', 'S3', 'Athena', 'Step Functions', 'EventBridge', 'RDS', 'GCP Dataproc', 'BigQuery', 'GCS', 'Apache Airflow', 'dbt Core', 'Apache Spark', 'PySpark', 'MLflow', 'Delta Lake', 'PostgreSQL'],
+    processing: ['pandas', 'NumPy', 'scikit-learn', 'DuckDB', 'Delta Lake', 'Parquet'],
+    infra: ['Docker', 'Docker Compose', 'Terraform', 'GitHub Actions', 'Apache Kafka', 'Maven'],
+    backend: ['Flask', 'FastAPI', 'REST APIs', 'SQLite', 'Shell Scripting (Bash, PowerShell)']
   }
   
   return (
@@ -53,7 +49,7 @@ const Resume = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className={styles.pageSubtitle}
         >
-          Check out my experience, projects, and tech stack!
+          Data engineering experience, projects, and tech stack
         </motion.p>
       </div>
       
@@ -71,21 +67,21 @@ const Resume = () => {
             
             <div className={styles.profileInfo}>
               <h2>Yvonne Hong</h2>
-              <p className={styles.profileTitle}>Machine Learning Engineering, Computer Vision, & Generative AI</p>
+              <p className={styles.profileTitle}>Data Engineering · AWS · GCP · Spark · dbt</p>
               
               <div className={styles.profileMetrics}>
                 <div className={styles.profileMetric}>
-                  <div className={styles.metricIcon}><FaBrain /></div>
+                  <div className={styles.metricIcon}><FaCloud /></div>
                   <div className={styles.metricInfo}>
-                    <h4>98.4%</h4>
-                    <p>F1-Score</p>
+                    <h4>AWS + GCP</h4>
+                    <p>Cloud Platforms</p>
                   </div>
                 </div>
                 <div className={styles.profileMetric}>
-                  <div className={styles.metricIcon}><FaRocket /></div>
+                  <div className={styles.metricIcon}><FaDatabase /></div>
                   <div className={styles.metricInfo}>
-                    <h4>4</h4>
-                    <p>ML Projects</p>
+                    <h4>1.5M+</h4>
+                    <p>Records Processed</p>
                   </div>
                 </div>
               </div>
@@ -127,6 +123,8 @@ const Resume = () => {
             </div>
             
             <div className={styles.tabsContent}>
+
+              {/* EDUCATION */}
               {activeTab === 'education' && (
                 <motion.div 
                   key="education"
@@ -140,16 +138,19 @@ const Resume = () => {
                     <div className={styles.timelineItem}>
                       <div className={styles.timelineIcon}><FaUniversity /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>2021 - 2025</div>
-                        <h3>Bachelor of Science in Mathematics-Computer Science</h3>
-                        <h4>University of California, San Diego (UCSD)</h4>
+                        <div className={styles.timelinePeriod}>2021 – 2025</div>
+                        <h3>Bachelor of Science — Mathematics-Computer Science</h3>
+                        <h4>University of California, San Diego</h4>
                         
                         <div className={styles.courseList}>
                           <h5>Relevant Coursework:</h5>
                           <ul>
-                            <li>Machine Learning Algorithms, Artificial Intelligence: Probabilistic Reasoning & Decision-Making</li>
-                            <li>Design & Analysis of Algorithms, Advanced Data Structures</li>
-                            <li>Probability & Statistics, Applied & Computational Linear Algebra</li>
+                            <li>Machine Learning Algorithms</li>
+                            <li>Artificial Intelligence: Probabilistic Reasoning & Decision-Making</li>
+                            <li>Design & Analysis of Algorithms</li>
+                            <li>Advanced Data Structures</li>
+                            <li>Probability & Statistics</li>
+                            <li>Applied & Computational Linear Algebra</li>
                           </ul>
                         </div>
                       </div>
@@ -158,6 +159,7 @@ const Resume = () => {
                 </motion.div>
               )}
               
+              {/* EXPERIENCE */}
               {activeTab === 'experience' && (
                 <motion.div 
                   key="experience"
@@ -168,31 +170,42 @@ const Resume = () => {
                   className={styles.experienceTab}
                 >
                   <div className={styles.timelineWrapper}>
+
                     <div className={styles.timelineItem}>
                       <div className={styles.timelineIcon}><FaLaptopCode /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>Jul 2024 - Sep 2024</div>
-                        <h3>Software Engineering Intern</h3>
-                        <h4>Tristero (San Diego)</h4>
+                        <div className={styles.timelinePeriod}>Jul 2024 – Oct 2024</div>
+                        <h3>Data Engineering Intern</h3>
+                        <h4>Tristero · San Diego, CA</h4>
                         <ul className={styles.experienceList}>
-                          <li>Built scalable REST API with Python Flask serving 60+ endpoints, implementing PostgreSQL database with 12 normalized
-tables using SQLAlchemy ORM; designed complex relationships (1:N, M:N) with foreign key constraints and database indexes</li>
-                          <li>Created JWT-based authentication system with Flask-JWT-Extended generating stateless tokens, bcrypt password hashing,
-custom Python middleware decorators for role-based authorization, and Flask-CORS for secure cross-origin communication
-between decoupled frontend/backend services</li>
-                          <li>Implemented automated time tracking backend with Python datetime operations and PostgreSQL aggregate functions (SUM,
-COUNT, GROUP BY) for monthly payroll summaries; built expense approval workflow with SQLAlchemy ACID-compliant
-transactions ensuring data consistency across concurrent operations</li>
-                          <li>Deployed production-ready backend with Flask-Migrate for database version control, structured error handling with transaction
-rollbacks, and RESTful API design following HTTP best practices; modular codebase ready for Docker containerization and
-horizontal scaling</li>
+                          <li>Created and deployed an end-to-end serverless AWS ETL pipeline — Lambda, Glue, S3, Athena, Step Functions, EventBridge, Secrets Manager — to automate weekly partner data ingestion from Google Sheets, replacing a fully manual copy-paste workflow and eliminating 85% of manual processing time</li>
+                          <li>Implemented medallion architecture with a raw CSV layer and a processed Parquet layer; wrote an AWS Glue Python Shell job to clean and normalize partner data, derive TVL size buckets, and write partitioned output to S3 by partner category (DeFi, CeFi, DEXs, CEXs, Wallets, Infrastructure) and size bucket; registered schema via Glue Crawler and Glue Data Catalog for Athena SQL queries</li>
+                          <li>Resolved cross-platform binary incompatibility (cffi, cryptography compiled on Windows failing on Lambda's Linux runtime) by building a Linux-compatible Lambda deployment package inside a Docker container using the official public.ecr.aws/lambda/python:3.12 base image; pinned cryptography to v41 to avoid Rust-based bindings introduced in v42 that caused silent import failures on Lambda</li>
+                          <li>Authenticated securely to the Google Sheets API via a GCP service account with credentials stored in AWS Secrets Manager; deployed a second Lambda output function that queries processed partner data directly from Athena via boto3 and writes segmented tabs back to Google Sheets by partner category</li>
+                          <li>Orchestrated full pipeline using AWS Step Functions — ingest Lambda → Glue job → output Lambda — triggered weekly via EventBridge cron; enabled S3 versioning to preserve every weekly raw and processed snapshot indefinitely</li>
                         </ul>
                       </div>
                     </div>
+
+                    <div className={styles.timelineItem}>
+                      <div className={styles.timelineIcon}><FaLaptopCode /></div>
+                      <div className={styles.timelineContent}>
+                        <div className={styles.timelinePeriod}>Sept 2021 – Dec 2021</div>
+                        <h3>Data Engineering Intern</h3>
+                        <h4>Sagepoint Financial · La Jolla, CA</h4>
+                        <ul className={styles.experienceList}>
+                          <li>Built an AWS data pipeline (Lambda, Step Functions, S3, RDS) to automate ingestion of client portfolio data</li>
+                          <li>Integrated Morningstar Direct Python package to enrich holdings with live ratings, returns, and expense ratios; loaded structured data into Postgres and wrote segmented output to Google Sheets organized by account type</li>
+                          <li>Orchestrated quarterly report generation via Apache Airflow, triggering the full pipeline on an automated schedule</li>
+                        </ul>
+                      </div>
+                    </div>
+
                   </div>
                 </motion.div>
               )}
               
+              {/* PROJECTS */}
               {activeTab === 'projects' && (
                 <motion.div 
                   key="projects"
@@ -203,76 +216,73 @@ horizontal scaling</li>
                   className={styles.projectsTab}
                 >
                   <div className={styles.timelineWrapper}>
-                    {/* NEW PROJECT - FIRST IN LIST */}
+
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaBrain /></div>
+                      <div className={styles.timelineIcon}><FaCloud /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>Sept 2025 - Nov 2025</div>
-                        <h3>Software Resume Optimizer</h3>
-                        <h4>PyTorch, Transformers, ChromaDB, NLP, Production ML</h4>
+                        <div className={styles.timelinePeriod}>March 2026</div>
+                        <h3>TurtleTide</h3>
+                        <h4>BigQuery · GCP Dataproc · SQL · Airflow · PySpark · dbt · Delta Lake · MLflow</h4>
                         <ul className={styles.experienceList}>
-                          <li>Built production ML pipeline deployed to Hugging Face Spaces via gradio that takes in a resume and a job description, and
-outputs a strength score for each resume section that determines the probability of meeting the requirements for the job.</li>
-                          <li>Hand-labeled 300 resume-job pairs using domain-specific scoring rubrics, creating ground truth dataset for supervised learning
-with labels for overall match, education, skills, projects, and experience scores</li>
-                          <li>Trained PyTorch neural networks combining semantic embeddings with 80+ engineered features (TF-IDF, spaCy NER, regex
-patterns), combined with cosine similarity scoring for semantic matching between resume and job embeddings</li>
-                          <li>Built comprehensive ML stack with scikit-learn (baseline models, evaluation metrics), ChromaDB (vector storage), pandas/NumPy
-(data processing), and PyMuPDF for PDF text extraction</li>
-                          <li>Achieved 31% MAE reduction over TF-IDF baseline on validation set (22.78 vs 33.06), demonstrating neural approach effectiveness
-for multi-output regression on resume-job matching with proper train/val/test methodology and early stopping to prevent
-overfitting</li>
+                          <li>Built a weekly-automated data engineering pipeline tracking global sea turtle migration patterns by ingesting occurrence records from the OBIS REST API across 4 endangered species, detecting anomalous sighting patterns using STL seasonal decomposition, and surfacing findings through a live Streamlit dashboard with geospatial maps and ocean basin analytics</li>
+                          <li>Ingested 1.5M+ raw occurrence records (Leatherback, Green, Loggerhead, Hawksbill) via chunked paginated ingestion (10K records/call); cleaned and typed raw JSON with PySpark on ephemeral Google Cloud Dataproc clusters — deduplicating, dropping null coordinates, standardizing field names — and wrote Silver layer as a Delta Lake table on GCS for atomic commits and schema enforcement; clusters created at job start and deleted immediately to minimize cost</li>
+                          <li>Modeled Silver-to-Gold transformations with dbt Core targeting BigQuery; wrote 3 SQL models (stg_obis_occurrences, fct_turtle_sightings, rpt_basin_anomalies) with 7 data quality tests including not_null, accepted_values, and coordinate range validation; automated test execution on every commit via GitHub Actions CI/CD</li>
+                          <li>Implemented STL anomaly detection per species per ocean basin — decomposed monthly sighting counts into trend, seasonal, and residual components; flagged basins where residuals exceeded 2 standard deviations; all runs logged to MLflow with parameters, metrics, and per-basin anomaly artifacts</li>
+                          <li>Orchestrated full pipeline with Apache Airflow 7-task DAG (@weekly) via Docker Compose; provisioned all GCP infrastructure (GCS buckets, BigQuery datasets, IAM) as code using Terraform; deployed live dashboard to Streamlit Cloud</li>
                         </ul>
                       </div>
                     </div>
 
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaLightbulb /></div>
+                      <div className={styles.timelineIcon}><FaStream /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>July 2025</div>
-                        <h3>QA RAG MLops Pipeline</h3>
-                        <h4>TensorFlow, Hugging Face, RAG, Generative AI</h4>
+                        <div className={styles.timelinePeriod}>Jan – Feb 2026</div>
+                        <h3>MigrationPulse</h3>
+                        <h4>Apache Airflow · PySpark · dbt · Delta Lake · AWS S3 · MLflow</h4>
                         <ul className={styles.experienceList}>
-                          <li>Built production-ready RAG system using TensorFlow, Hugging Face Transformers, and Large Language Models for document Q&A with ChromaDB and Pinecone vector databases, implementing semantic search, cosine similarity, and prompt engineering</li>
-                          <li>Engineered NLP pipeline with spaCy, NLTK, sentence-transformers for 384-dimensional vector embeddings, PDF extraction, text chunking, OpenAI API, local Hugging Face models, retrieval augmentation, and embedding optimization</li>
-                          <li>Developed MLOps architecture with Docker containerization, FastAPI REST APIs, Streamlit/Gradio interfaces, implementing vector database storage, model versioning, performance monitoring, batch processing, error handling, and logging infrastructure</li>
+                          <li>Built a weekly-automated pipeline ingesting live GPS telemetry from the Movebank Animal Tracking API for migratory species, processing through Bronze → Silver → Gold medallion architecture on AWS S3, and detecting migration corridor deviations using DTW (Dynamic Time Warping) — surfaced via a live Streamlit dashboard with pydeck migration maps and per-individual anomaly scoring</li>
+                          <li>Ingested 9.4M+ GPS records across 5 species (Bald Eagle, Turkey Vulture, Snow Goose, Canada Goose, Mallard) and 123 individuals; implemented chunked ingestion using pandas chunksize to handle 2.3GB+ datasets exceeding S3 single-upload limits; cleaned and typed raw telemetry with PySpark and wrote Silver layer as a Delta Lake table on S3 for atomic commits and schema enforcement</li>
+                          <li>Modeled Silver-to-Gold transformations with dbt Core using DuckDB as the local execution engine; wrote 3 SQL models with 6 data quality tests; staging model reads directly from Delta Lake via DuckDB's delta_scan() with a pre-hook S3 secret for credential injection; automated test execution via GitHub Actions CI/CD</li>
+                          <li>Implemented Sakoe-Chiba banded DTW anomaly detection — built a species-level trajectory template from median lat/long paths across all individuals, computed per-individual DTW distance against the template, and flagged individuals exceeding 2 standard deviations; all runs logged to MLflow</li>
+                          <li>Orchestrated full pipeline with Apache Airflow 8-task DAG (@weekly) via Docker Compose — from API health check through bronze ingest, silver Delta Lake write, dbt build, DTW scoring, and anomaly notification</li>
                         </ul>
                       </div>
                     </div>
-                    
+
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaEye /></div>
+                      <div className={styles.timelineIcon}><FaDatabase /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>July 2025</div>
-                        <h3>Multi-Task Food Classification System</h3>
-                        <h4>PyTorch, OpenCV, Gradio, Computer Vision</h4>
+                        <div className={styles.timelinePeriod}>Dec 2025</div>
+                        <h3>Beaver Watershed Pipeline</h3>
+                        <h4>AWS Step Functions · Lambda · S3 · RDS PostgreSQL · Streamlit</h4>
                         <ul className={styles.experienceList}>
-                          <li>Built multi-task CNN system using PyTorch for food classification (101 classes), cuisine detection (13 categories), and nutrition regression, implementing ResNet50 with task-specific attention mechanisms, focal loss, data augmentation, hyperparameter tuning, multi-task loss weighting, uncertainty-weighted optimization, and attention mechanisms implementation</li>
-                          <li>Developed 4 CNN architectures including custom networks with depthwise separable convolutions, ensemble methods (weighted, stacked, mixture of experts), attention layers using PIL/Pillow and albumentations, dilated convolutions, Bayesian Model Averaging, uncertainty quantification, temperature scaling, model ensemble averaging, and attention visualization</li>
-                          <li>Engineered production ML pipeline with FastAPI, Gradio interface, PyTorch model quantization, CUDA optimization, comprehensive benchmarking utilities, cross-platform deployment (ONNX, TorchScript, CoreML), model versioning, performance monitoring, real-time inference APIs, model switching capabilities, checkpoint management, and containerized deployment</li>
-                          <li>Implemented ensemble techniques with gating networks, cross-modal attention fusion, mobile deployment optimization using OpenCV and scikit-learn evaluation metrics, gradient clipping, learning rate scheduling, early stopping, and MLOps architecture</li>
+                          <li>Built a weekly-automated AWS pipeline spatially joining GBIF beaver sighting records with USGS water quality data (dissolved oxygen, temperature, pH, turbidity) to identify anomalous monitoring stations near beaver habitat — surfaced via a live Streamlit dashboard with geospatial maps and Isolation Forest anomaly detection</li>
+                          <li>Ingested and spatially joined 39,900+ beaver sightings across 569 USGS monitoring stations nationwide into RDS PostgreSQL; matched each sighting to its nearest station within 500km using vectorized NumPy haversine distance; applied per-parameter sentinel value filters and station deduplication</li>
+                          <li>Architected AWS Step Functions orchestration with 4-Lambda workflow to solve GBIF rate limiting — async download request, free Wait State (vs billable Lambda idle time), GBIF status poller, and processor Lambda; reduced pipeline from timeout to 11 min end-to-end</li>
+                          <li>Integrated Isolation Forest anomaly detection with EPA climate region z-score normalization — normalized water quality readings within 10 regional baselines before scoring; packaged scikit-learn + scipy into Linux-compatible Docker Lambda layer under 262MB AWS limit</li>
                         </ul>
                       </div>
                     </div>
-                    
+
                     <div className={styles.timelineItem}>
-                      <div className={styles.timelineIcon}><FaChartLine /></div>
+                      <div className={styles.timelineIcon}><FaLayerGroup /></div>
                       <div className={styles.timelineContent}>
-                        <div className={styles.timelinePeriod}>June 2025</div>
-                        <h3>eBird Java Kafka Stream Processor</h3>
-                        <h4>Java, Kafka, Docker, Python, SQL, DuckDB</h4>
+                        <div className={styles.timelinePeriod}>May – Jul 2025</div>
+                        <h3>eBird 47GB Big Data Processor</h3>
+                        <h4>Java · Kafka · Docker · Python · SQL · DuckDB</h4>
                         <ul className={styles.experienceList}>
-                          <li>Engineered real-time anomaly detection pipeline using Apache Kafka, Java 23, and Docker with JavaScript prototyping for algorithm validation, achieving 100% precision and 96.9% recall on 1,000+ synthetic observations</li>
-                          <li>Processed 47GB eBird dataset using SQL and DuckDB to extract Mourning Dove population trends across 20 years (2005-2024), analyzing 174,422+ bird observations and 34,963+ individual records for baseline establishment and breeding pattern analysis</li>
-                          <li>Developed machine learning prediction models using Python (pandas, NumPy, scikit-learn, seaborn) with polynomial regression (R² = 0.969), generating synthetic observations with realistic seasonal breeding patterns</li>
-                          <li>Built end-to-end data pipeline (47GB eBird dataset to DuckDB SQL analysis to Python CSV processing to synthetic data generation to Kafka streaming to real-time anomaly detection to JSON alerts) with Maven build automation</li>
+                          <li>Engineered real-time anomaly detection pipeline using SQL, DuckDB, Java 23, Apache Kafka, and Docker; generated 1,000+ synthetic observations via Python Kafka producer, based on 447 historical Mourning Dove records from San Diego County (2005–2024), with 32 injected anomalies; achieved 100% precision, 96.9% recall (31/32 detected), and 98.4% F1-score via Z-score analysis</li>
+                          <li>Processed 47GB eBird dataset with SQL and DuckDB, analyzing 174,422+ observations and 34,963+ records over 20 years; used 447 San Diego sightings to train polynomial regression (R² = 0.969) for 2025 population forecasting and seasonal modeling</li>
+                          <li>Built end-to-end fault-tolerant pipeline (eBird → DuckDB → Python → Kafka producer → Java Streams → alerts) with Maven, Docker Compose, and production-ready Kafka architecture; ensured zero false positives and 1,000+ obs/session throughput</li>
                         </ul>
                       </div>
                     </div>
+
                   </div>
                 </motion.div>
               )}
               
+              {/* SKILLS */}
               {activeTab === 'skills' && (
                 <motion.div 
                   key="skills"
@@ -283,10 +293,11 @@ overfitting</li>
                   className={styles.skillsTab}
                 >
                   <div className={styles.skillsContent}>
+
                     <div className={styles.skillSection}>
-                      <h3>Programming Languages</h3>
+                      <h3>Languages</h3>
                       <div className={styles.skillCards}>
-                        {skills.programming.map((skill, index) => (
+                        {skills.languages.map((skill, index) => (
                           <motion.div 
                             key={skill}
                             className={styles.skillCard}
@@ -302,9 +313,27 @@ overfitting</li>
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Machine Learning & Deep Learning</h3>
+                      <h3>Data Engineering</h3>
                       <div className={styles.skillCards}>
-                        {skills.machineLearning.map((skill, index) => (
+                        {skills.dataEngineering.map((skill, index) => (
+                          <motion.div 
+                            key={skill}
+                            className={styles.skillCard}
+                            custom={index}
+                            variants={fadeIn}
+                            initial="initial"
+                            animate="animate"
+                          >
+                            {skill}
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={styles.skillSection}>
+                      <h3>Data Processing & Storage</h3>
+                      <div className={styles.skillCards}>
+                        {skills.processing.map((skill, index) => (
                           <motion.div 
                             key={skill}
                             className={styles.skillCard}
@@ -320,9 +349,9 @@ overfitting</li>
                     </div>
                     
                     <div className={styles.skillSection}>
-                      <h3>Computer Vision & Neural Networks</h3>
+                      <h3>Infrastructure & DevOps</h3>
                       <div className={styles.skillCards}>
-                        {skills.deepLearning.map((skill, index) => (
+                        {skills.infra.map((skill, index) => (
                           <motion.div 
                             key={skill}
                             className={styles.skillCard}
@@ -336,11 +365,11 @@ overfitting</li>
                         ))}
                       </div>
                     </div>
-                    
+
                     <div className={styles.skillSection}>
-                      <h3>NLP & Generative AI</h3>
+                      <h3>Backend & APIs</h3>
                       <div className={styles.skillCards}>
-                        {skills.nlp.map((skill, index) => (
+                        {skills.backend.map((skill, index) => (
                           <motion.div 
                             key={skill}
                             className={styles.skillCard}
@@ -354,24 +383,7 @@ overfitting</li>
                         ))}
                       </div>
                     </div>
-                    
-                    <div className={styles.skillSection}>
-                      <h3>MLOps & Production Tools</h3>
-                      <div className={styles.skillCards}>
-                        {skills.tools.map((skill, index) => (
-                          <motion.div 
-                            key={skill}
-                            className={styles.skillCard}
-                            custom={index}
-                            variants={fadeIn}
-                            initial="initial"
-                            animate="animate"
-                          >
-                            {skill}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
+
                   </div>
                 </motion.div>
               )}

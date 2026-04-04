@@ -5,22 +5,17 @@ import {
   FaGithub, 
   FaLinkedinIn, 
   FaEnvelope, 
-  FaBrain,
-  FaRocket, 
-  FaCode,
+  FaDatabase,
+  FaCloud,
+  FaStream,
   FaCogs,
-  FaChartLine,
-  FaEye,
-  FaLightbulb
+  FaLayerGroup,
+  FaChartLine
 } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import styles from './Home.module.css'
 
 const Home = () => {
-  useEffect(() => {
-    // Add any initialization code here
-  }, [])
-  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -54,8 +49,8 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className={styles.heroMetadata}
           >
-            <span className={styles.metaTag}>ML ENGINEER</span>
-            <span className={styles.metaTag}>Computer Vision</span>
+            <span className={styles.metaTag}>DATA ENGINEER</span>
+            <span className={styles.metaTag}>AWS · GCP · Spark</span>
           </motion.div>
           
           <motion.h1
@@ -82,7 +77,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className={styles.heroSubtitle}
           >
-            I love exploring new things!
+            I build data pipelines that scale.
           </motion.h3>
           
           <motion.p
@@ -91,9 +86,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className={styles.heroDescription}
           >
-            I'm a recent graduate at UC San Diego with a B.S in Mathematics-Computer Science; 
-            exclusively interested in machine learning, computer vision, and model 
-            optimization for applied AI systems.
+            Recent UC San Diego grad (B.S. Mathematics-Computer Science) specializing in 
+            data engineering — building end-to-end pipelines on AWS and GCP, medallion 
+            architectures with Delta Lake, and automated orchestration with Airflow and dbt.
           </motion.p>
           
           <motion.p
@@ -102,7 +97,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className={styles.heroDescription2}
           >
-            I thrive on picking up new concepts quickly and applying them in hands-on ML work!
+            I love turning messy, raw data into clean, reliable systems that teams can actually use.
           </motion.p>
           
           <motion.div
@@ -129,26 +124,26 @@ const Home = () => {
           
           <div className={styles.techStack}>
             <div className={styles.techCard}>
-              <div className={styles.techIcon}><FaBrain /></div>
+              <div className={styles.techIcon}><FaCloud /></div>
               <div className={styles.techContent}>
-                <h4>Machine Learning</h4>
-                <p>TensorFlow • PyTorch • scikit-learn</p>
+                <h4>Cloud Platforms</h4>
+                <p>AWS · GCP · Lambda · Dataproc</p>
               </div>
             </div>
             
             <div className={styles.techCard}>
-              <div className={styles.techIcon}><FaEye /></div>
+              <div className={styles.techIcon}><FaStream /></div>
               <div className={styles.techContent}>
-                <h4>Computer Vision</h4>
-                <p>OpenCV • CNN • Object Detection</p>
+                <h4>Pipeline Orchestration</h4>
+                <p>Airflow · Step Functions · dbt</p>
               </div>
             </div>
             
             <div className={styles.techCard}>
-              <div className={styles.techIcon}><FaLightbulb /></div>
+              <div className={styles.techIcon}><FaLayerGroup /></div>
               <div className={styles.techContent}>
-                <h4>NLP & RAG</h4>
-                <p>Hugging Face • LLMs • Vector DB</p>
+                <h4>Data Processing</h4>
+                <p>PySpark · Delta Lake · BigQuery</p>
               </div>
             </div>
           </div>
@@ -167,28 +162,28 @@ const Home = () => {
               <FaChartLine />
             </div>
             <div className={styles.achievementContent}>
-              <h3>98.4% F1-Score</h3>
-              <p>Achieved industry-grade performance in real-time anomaly detection with zero false positives</p>
+              <h3>85% Manual Time Saved</h3>
+              <p>Eliminated manual copy-paste workflows at Tristero by deploying a serverless AWS ETL pipeline end-to-end</p>
             </div>
           </div>
           
           <div className={styles.achievementCard}>
             <div className={styles.achievementIcon}>
-              <FaBrain />
+              <FaDatabase />
             </div>
             <div className={styles.achievementContent}>
-              <h3>Multi-Task CNN</h3>
-              <p>Built production-ready food classification system with 101 classes and nutrition regression</p>
+              <h3>1.5M+ Records Processed</h3>
+              <p>Ingested and cleaned 1.5M+ sea turtle occurrence records across 4 endangered species via PySpark on GCP Dataproc</p>
             </div>
           </div>
           
           <div className={styles.achievementCard}>
             <div className={styles.achievementIcon}>
-              <FaRocket />
+              <FaCogs />
             </div>
             <div className={styles.achievementContent}>
-              <h3>RAG Pipeline</h3>
-              <p>Production-ready QA system using TensorFlow, Hugging Face, and vector databases</p>
+              <h3>Full Medallion Architecture</h3>
+              <p>Bronze → Silver → Gold pipelines with Delta Lake, dbt, CI/CD, and Terraform across multiple production projects</p>
             </div>
           </div>
         </div>
@@ -203,63 +198,63 @@ const Home = () => {
         <div className={styles.expertiseGrid}>
           <div className={styles.expertiseCard}>
             <div className={styles.expertiseHeader}>
-              <FaCode className={styles.expertiseIcon} />
-              <h3>Machine Learning</h3>
+              <FaCloud className={styles.expertiseIcon} />
+              <h3>Cloud & Infrastructure</h3>
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>Deep Learning</h4>
-                <p>TensorFlow, PyTorch, Keras, Neural Networks, CNNs, RNNs</p>
+                <h4>AWS</h4>
+                <p>Lambda, Glue, S3, Athena, Step Functions, RDS, EventBridge, Secrets Manager</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>ML Libraries</h4>
-                <p>scikit-learn, pandas, NumPy, matplotlib, seaborn</p>
+                <h4>GCP</h4>
+                <p>Dataproc, BigQuery, GCS, IAM — provisioned via Terraform</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>Languages</h4>
-                <p>Python, Java, C++, SQL, JavaScript</p>
+                <h4>IaC & Containers</h4>
+                <p>Terraform, Docker, Docker Compose, Shell Scripting</p>
               </div>
             </div>
           </div>
           
           <div className={styles.expertiseCard}>
             <div className={styles.expertiseHeader}>
-              <FaEye className={styles.expertiseIcon} />
-              <h3>Computer Vision</h3>
+              <FaStream className={styles.expertiseIcon} />
+              <h3>Pipelines & Orchestration</h3>
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>Vision Libraries</h4>
-                <p>OpenCV, PIL/Pillow, albumentations, torchvision</p>
+                <h4>Orchestration</h4>
+                <p>Apache Airflow (DAGs, Docker Compose), AWS Step Functions, EventBridge</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>Techniques</h4>
-                <p>Object Detection, Image Classification, Data Augmentation</p>
+                <h4>Transformation</h4>
+                <p>dbt Core (BigQuery, DuckDB), SQL models, data quality tests, CI/CD via GitHub Actions</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>Architectures</h4>
-                <p>ResNet, CNNs, Attention Mechanisms, Multi-task Learning</p>
+                <h4>Streaming</h4>
+                <p>Apache Kafka, Java Streams, real-time anomaly detection</p>
               </div>
             </div>
           </div>
           
           <div className={styles.expertiseCard}>
             <div className={styles.expertiseHeader}>
-              <FaLightbulb className={styles.expertiseIcon} />
-              <h3>NLP & Generative AI</h3>
+              <FaLayerGroup className={styles.expertiseIcon} />
+              <h3>Storage & Processing</h3>
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>NLP Stack</h4>
-                <p>Hugging Face, spaCy, NLTK, sentence-transformers</p>
+                <h4>Distributed Processing</h4>
+                <p>Apache Spark, PySpark, ephemeral Dataproc clusters, DuckDB</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>LLMs & RAG</h4>
-                <p>Large Language Models, Vector Databases, RAG Systems</p>
+                <h4>Storage Formats</h4>
+                <p>Delta Lake (atomic commits, schema enforcement), Parquet, S3, GCS</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>MLOps</h4>
-                <p>Docker, FastAPI, Model Versioning, Performance Monitoring</p>
+                <h4>Databases</h4>
+                <p>PostgreSQL, BigQuery, Athena SQL, RDS, SQLite</p>
               </div>
             </div>
           </div>

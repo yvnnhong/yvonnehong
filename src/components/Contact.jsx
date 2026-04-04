@@ -1,6 +1,5 @@
-import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedinIn, FaGithub, FaDatabase, FaBrain, FaRocket } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedinIn, FaGithub, FaDatabase, FaCloud, FaStream } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import styles from './Contact.module.css'
 
@@ -10,9 +9,7 @@ const Contact = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6
-      }
+      transition: { duration: 0.6 }
     }
   }
 
@@ -45,12 +42,9 @@ const Contact = () => {
             hidden: { opacity: 0 },
             visible: {
               opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2
-              }
-            }}
-          }
+              transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+            }
+          }}
           initial="hidden"
           animate="visible"
         >
@@ -60,15 +54,15 @@ const Contact = () => {
             </div>
             <div className={styles.profileInfo}>
               <h2>Yvonne Hong</h2>
-              <p className={styles.profileTitle}>Machine Learning Engineer</p>
+              <p className={styles.profileTitle}>Data Engineer</p>
             </div>
           </motion.div>
 
           <motion.div className={styles.infoHeader} variants={fadeInUp}>
             <p>
-              I'm actively seeking opportunities in machine learning engineering; specifically,
-              creating applied AI/ML solutions addressing real-world problems. 
-              Feel free to reach out to me directly at{' '}
+              I'm actively seeking opportunities in data engineering — building scalable pipelines,
+              cloud infrastructure, and reliable data systems that teams can trust.
+              Feel free to reach out directly at{' '}
               <a href="mailto:yvonneh.nyc@gmail.com" className={styles.emailLink}>
                 yvonneh.nyc@gmail.com
               </a>
@@ -83,7 +77,6 @@ const Contact = () => {
               link="mailto:yvonneh.nyc@gmail.com"
               delay={0}
             />
-            
             <ContactCard 
               icon={<FaMapMarkerAlt />}
               title="Location"
@@ -97,17 +90,24 @@ const Contact = () => {
             <h3>What I Bring to the Table</h3>
             <div className={styles.skillsGrid}>
               <div className={styles.skillCard}>
-                <FaBrain className={styles.skillIcon} />
+                <FaCloud className={styles.skillIcon} />
                 <div className={styles.skillContent}>
-                  <h4>Machine Learning</h4>
-                  <p>tensorflow, pytorch & deep learning</p>
+                  <h4>Cloud Pipelines</h4>
+                  <p>AWS (Lambda, Glue, Step Functions, Athena) & GCP (Dataproc, BigQuery)</p>
                 </div>
               </div>
               <div className={styles.skillCard}>
-                <FaRocket className={styles.skillIcon} />
+                <FaDatabase className={styles.skillIcon} />
                 <div className={styles.skillContent}>
-                  <h4>Real-time Systems</h4>
-                  <p>MLOps pipelines, streaming data, & containerized microservices</p>
+                  <h4>Medallion Architecture</h4>
+                  <p>Bronze → Silver → Gold with Delta Lake, dbt, and PySpark</p>
+                </div>
+              </div>
+              <div className={styles.skillCard}>
+                <FaStream className={styles.skillIcon} />
+                <div className={styles.skillContent}>
+                  <h4>Orchestration</h4>
+                  <p>Apache Airflow DAGs, AWS Step Functions, EventBridge cron scheduling</p>
                 </div>
               </div>
             </div>
@@ -140,10 +140,7 @@ const ContactCard = ({ icon, title, content, link, delay }) => {
         visible: { 
           opacity: 1, 
           y: 0,
-          transition: {
-            duration: 0.6,
-            delay
-          }
+          transition: { duration: 0.6, delay }
         }
       }}
       target={link.startsWith('http') ? '_blank' : '_self'}
