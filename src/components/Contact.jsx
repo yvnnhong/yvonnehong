@@ -1,8 +1,8 @@
+
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedinIn, FaGithub, FaDatabase, FaCloud, FaStream } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import styles from './Contact.module.css'
-
 const Contact = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -12,7 +12,6 @@ const Contact = () => {
       transition: { duration: 0.6 }
     }
   }
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,10 +30,9 @@ const Contact = () => {
           Contact <span className={styles.textGradient}>Me!</span>
         </h1>
         <p className={styles.pageSubtitle}>
-          Let's build something amazing together
+          Let's build something reliable under load
         </p>
       </motion.div>
-
       <div className={styles.contactContent}>
         <motion.div 
           className={styles.contactInfo}
@@ -54,21 +52,18 @@ const Contact = () => {
             </div>
             <div className={styles.profileInfo}>
               <h2>Yvonne Hong</h2>
-              <p className={styles.profileTitle}>Data Engineer</p>
+              <p className={styles.profileTitle}>Distributed Systems Engineer</p>
             </div>
           </motion.div>
-
           <motion.div className={styles.infoHeader} variants={fadeInUp}>
             <p>
-              I'm actively seeking opportunities in data engineering — building scalable pipelines,
-              cloud infrastructure, and reliable data systems that teams can trust.
-              Feel free to reach out directly at{' '}
+              I'm a distributed systems engineer working on rate limiting, streaming pipelines,
+              and observable production services. Reach me at{' '}
               <a href="mailto:yvonneh.nyc@gmail.com" className={styles.emailLink}>
                 yvonneh.nyc@gmail.com
               </a>
             </p>
           </motion.div>
-
           <div className={styles.contactCards}>
             <ContactCard 
               icon={<FaEnvelope />}
@@ -80,39 +75,37 @@ const Contact = () => {
             <ContactCard 
               icon={<FaMapMarkerAlt />}
               title="Location"
-              content="San Diego, CA"
+              content="Toronto, ON / San Diego, CA"
               link="https://maps.google.com"
               delay={0.1}
             />
           </div>
-
           <motion.div className={styles.expertiseHighlight} variants={fadeInUp}>
             <h3>What I Bring to the Table</h3>
             <div className={styles.skillsGrid}>
               <div className={styles.skillCard}>
+                <FaStream className={styles.skillIcon} />
+                <div className={styles.skillContent}>
+                  <h4>Streaming & Limits</h4>
+                  <p>Kafka, Flink, Redis Lua token buckets, ElastiCache sharding</p>
+                </div>
+              </div>
+              <div className={styles.skillCard}>
                 <FaCloud className={styles.skillIcon} />
                 <div className={styles.skillContent}>
-                  <h4>Cloud Pipelines</h4>
-                  <p>AWS (Lambda, Glue, Step Functions, Athena) & GCP (Dataproc, BigQuery)</p>
+                  <h4>Cloud Systems</h4>
+                  <p>AWS EC2, ALB, Lambda, Step Functions, ElastiCache, Docker</p>
                 </div>
               </div>
               <div className={styles.skillCard}>
                 <FaDatabase className={styles.skillIcon} />
                 <div className={styles.skillContent}>
-                  <h4>Medallion Architecture</h4>
-                  <p>Bronze → Silver → Gold with Delta Lake, dbt, and PySpark</p>
-                </div>
-              </div>
-              <div className={styles.skillCard}>
-                <FaStream className={styles.skillIcon} />
-                <div className={styles.skillContent}>
-                  <h4>Orchestration</h4>
-                  <p>Apache Airflow DAGs, AWS Step Functions, EventBridge cron scheduling</p>
+                  <h4>Storage</h4>
+                  <p>Postgres, Cassandra (HNSW), DynamoDB, S3, Parquet</p>
                 </div>
               </div>
             </div>
           </motion.div>
-
           <motion.div className={styles.socialLinks} variants={fadeInUp}>
             <h3>Connect with me</h3>
             <div className={styles.socialIcons}>
@@ -129,7 +122,6 @@ const Contact = () => {
     </motion.div>
   )
 }
-
 const ContactCard = ({ icon, title, content, link, delay }) => {
   return (
     <motion.a 
@@ -154,5 +146,4 @@ const ContactCard = ({ icon, title, content, link, delay }) => {
     </motion.a>
   )
 }
-
 export default Contact

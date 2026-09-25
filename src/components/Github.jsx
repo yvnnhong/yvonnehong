@@ -13,7 +13,6 @@ import {
   FaPython
 } from 'react-icons/fa'
 import styles from './Github.module.css'
-
 const Projects = () => {
   const [projects, setProjects] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -108,7 +107,7 @@ const Projects = () => {
         title: 'Beaver Watershed Pipeline',
         subtitle: 'AWS Step Functions · Lambda · S3 · RDS PostgreSQL · Streamlit',
         description: 'Weekly-automated AWS data pipeline spatially joining 39,900+ GBIF beaver sightings with USGS water quality data across 569 monitoring stations nationwide — with Isolation Forest anomaly detection and a live geospatial Streamlit dashboard.',
-        date: 'Dec 2025',
+        date: 'Nov 2025',
         techStack: ['AWS Lambda', 'AWS Step Functions', 'S3', 'RDS PostgreSQL', 'Streamlit', 'scikit-learn', 'NumPy', 'Docker', 'Python'],
         highlights: [
           '39,900+ beaver sightings spatially joined to 569 USGS stations via vectorized NumPy haversine',
@@ -194,7 +193,6 @@ const Projects = () => {
   const filteredProjects = selectedCategory === 'all'
     ? projects
     : projects.filter(project => project.categories.includes(selectedCategory))
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -213,10 +211,9 @@ const Projects = () => {
           My <span className={styles.textGradient}>Projects</span>
         </h1>
         <p className={styles.pageSubtitle}>
-          End-to-end data engineering pipelines — cloud, batch, and streaming
+          Pipelines and systems work — batch, streaming, and cloud
         </p>
       </motion.div>
-
       <motion.div 
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -254,7 +251,6 @@ const Projects = () => {
           Streaming
         </button>
       </motion.div>
-
       <div className={styles.projectsGrid}>
         <AnimatePresence mode="wait">
           {filteredProjects.map((project) => (
@@ -268,7 +264,6 @@ const Projects = () => {
     </motion.div>
   )
 }
-
 const ProjectCard = ({ project }) => {
   return (
     <motion.div
@@ -279,7 +274,6 @@ const ProjectCard = ({ project }) => {
       className={styles.projectCard}
     >
       <div className={styles.projectCardInner}>
-        {/* Header */}
         <div className={styles.projectHeader}>
           <div className={styles.projectMeta}>
             <span className={styles.projectDate}>{project.date}</span>
@@ -313,8 +307,6 @@ const ProjectCard = ({ project }) => {
           <p className={styles.projectSubtitle}>{project.subtitle}</p>
           <p className={styles.projectDescription}>{project.description}</p>
         </div>
-
-        {/* Tech Stack */}
         <div className={styles.techStackSection}>
           <div className={styles.techStackGrid}>
             {project.techStack.slice(0, 6).map((tech, index) => (
@@ -325,8 +317,6 @@ const ProjectCard = ({ project }) => {
             )}
           </div>
         </div>
-
-        {/* Key Features */}
         <div className={styles.featuresSection}>
           <h3 className={styles.sectionTitle}>Key Features</h3>
           <div className={styles.featuresGrid}>
@@ -341,8 +331,6 @@ const ProjectCard = ({ project }) => {
             ))}
           </div>
         </div>
-
-        {/* Highlights */}
         <div className={styles.highlightsSection}>
           <h3 className={styles.sectionTitle}>Technical Highlights</h3>
           <div className={styles.highlightsList}>
@@ -354,8 +342,6 @@ const ProjectCard = ({ project }) => {
             ))}
           </div>
         </div>
-
-        {/* Footer */}
         <div className={styles.projectFooter}>
           {project.githubUrl && (
             <a 
@@ -384,5 +370,4 @@ const ProjectCard = ({ project }) => {
     </motion.div>
   )
 }
-
 export default Projects

@@ -14,7 +14,6 @@ import {
 } from 'react-icons/fa'
 import profilePic from '../assets/profile_pic.png'
 import styles from './Home.module.css'
-
 const Home = () => {
   return (
     <motion.div
@@ -23,7 +22,6 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className={styles.homeContainer}
     >
-      {/* Fixed Social Links */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -40,7 +38,6 @@ const Home = () => {
           <FaEnvelope />
         </Link>
       </motion.div>
-
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <motion.div
@@ -49,8 +46,8 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className={styles.heroMetadata}
           >
-            <span className={styles.metaTag}>DATA ENGINEER</span>
-            <span className={styles.metaTag}>AWS · GCP · Spark</span>
+            <span className={styles.metaTag}>DISTRIBUTED SYSTEMS ENGINEER</span>
+            <span className={styles.metaTag}>Go · Kafka · Redis · AWS</span>
           </motion.div>
           
           <motion.h1
@@ -77,7 +74,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className={styles.heroSubtitle}
           >
-            I build data pipelines that scale.
+            I build distributed systems that stay consistent under load.
           </motion.h3>
           
           <motion.p
@@ -86,9 +83,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className={styles.heroDescription}
           >
-            Recent UC San Diego grad (B.S. Mathematics-Computer Science) specializing in 
-            data engineering — building end-to-end pipelines on AWS and GCP, medallion 
-            architectures with Delta Lake, and automated orchestration with Airflow and dbt.
+            UC San Diego grad (B.S. Mathematics-Computer Science). Distributed Systems Engineer
+            at Nebulearn — rate limiting, Kafka consumer groups, Flink abuse detection,
+            Cassandra vector retrieval, and production load testing on AWS.
           </motion.p>
           
           <motion.p
@@ -97,7 +94,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className={styles.heroDescription2}
           >
-            I love turning messy, raw data into clean, reliable systems that teams can actually use.
+            I care about correct limits across shards, p99 latency, and systems you can observe.
           </motion.p>
           
           <motion.div
@@ -124,26 +121,26 @@ const Home = () => {
           
           <div className={styles.techStack}>
             <div className={styles.techCard}>
-              <div className={styles.techIcon}><FaCloud /></div>
+              <div className={styles.techIcon}><FaStream /></div>
               <div className={styles.techContent}>
-                <h4>Cloud Platforms</h4>
-                <p>AWS · GCP · Lambda · Dataproc</p>
+                <h4>Streaming & Limits</h4>
+                <p>Kafka · Flink · Redis · token buckets</p>
               </div>
             </div>
             
             <div className={styles.techCard}>
-              <div className={styles.techIcon}><FaStream /></div>
+              <div className={styles.techIcon}><FaCloud /></div>
               <div className={styles.techContent}>
-                <h4>Pipeline Orchestration</h4>
-                <p>Airflow · Step Functions · dbt</p>
+                <h4>Cloud & Compute</h4>
+                <p>AWS EC2 · ALB · ElastiCache · Docker</p>
               </div>
             </div>
             
             <div className={styles.techCard}>
               <div className={styles.techIcon}><FaLayerGroup /></div>
               <div className={styles.techContent}>
-                <h4>Data Processing</h4>
-                <p>PySpark · Delta Lake · BigQuery</p>
+                <h4>Storage</h4>
+                <p>Postgres · Cassandra · S3 · DynamoDB</p>
               </div>
             </div>
           </div>
@@ -162,8 +159,8 @@ const Home = () => {
               <FaChartLine />
             </div>
             <div className={styles.achievementContent}>
-              <h3>85% Manual Time Saved</h3>
-              <p>Eliminated manual copy-paste workflows at Tristero by deploying a serverless AWS ETL pipeline end-to-end</p>
+              <h3>5,500–8,300 RPS</h3>
+              <p>k6-tested Golang flashcard pipeline behind ALB and a 3-instance Redis token-bucket limiter at ~43 ms p95</p>
             </div>
           </div>
           
@@ -172,8 +169,8 @@ const Home = () => {
               <FaDatabase />
             </div>
             <div className={styles.achievementContent}>
-              <h3>1.5M+ Records Processed</h3>
-              <p>Ingested and cleaned 1.5M+ sea turtle occurrence records across 4 endangered species via PySpark on GCP Dataproc</p>
+              <h3>90% Bot Reduction</h3>
+              <p>Split Kafka consumers: Go for generation, Flink keyed state for per-account velocity — active bots 20 → 2</p>
             </div>
           </div>
           
@@ -182,8 +179,8 @@ const Home = () => {
               <FaCogs />
             </div>
             <div className={styles.achievementContent}>
-              <h3>Full Medallion Architecture</h3>
-              <p>Bronze → Silver → Gold pipelines with Delta Lake, dbt, CI/CD, and Terraform across multiple production projects</p>
+              <h3>32% AWS Cost Cut</h3>
+              <p>Idle staging shutdown plus JVM heap tuning from k6 data — ~$1.2k/mo → $800/mo and fewer OOMs</p>
             </div>
           </div>
         </div>
@@ -198,42 +195,42 @@ const Home = () => {
         <div className={styles.expertiseGrid}>
           <div className={styles.expertiseCard}>
             <div className={styles.expertiseHeader}>
-              <FaCloud className={styles.expertiseIcon} />
-              <h3>Cloud & Infrastructure</h3>
+              <FaStream className={styles.expertiseIcon} />
+              <h3>Distributed Systems</h3>
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>AWS</h4>
-                <p>Lambda, Glue, S3, Athena, Step Functions, RDS, EventBridge, Secrets Manager</p>
+                <h4>Messaging</h4>
+                <p>Apache Kafka, Apache Flink, RabbitMQ, consumer groups, keyed state</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>GCP</h4>
-                <p>Dataproc, BigQuery, GCS, IAM — provisioned via Terraform</p>
+                <h4>Rate limiting</h4>
+                <p>Token-bucket limiter, atomic Redis Lua, ElastiCache sharding</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>IaC & Containers</h4>
-                <p>Terraform, Docker, Docker Compose, Shell Scripting</p>
+                <h4>RPC</h4>
+                <p>gRPC, Protobuf, video chunk ingestion</p>
               </div>
             </div>
           </div>
           
           <div className={styles.expertiseCard}>
             <div className={styles.expertiseHeader}>
-              <FaStream className={styles.expertiseIcon} />
-              <h3>Pipelines & Orchestration</h3>
+              <FaCloud className={styles.expertiseIcon} />
+              <h3>Cloud & Observability</h3>
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>Orchestration</h4>
-                <p>Apache Airflow (DAGs, Docker Compose), AWS Step Functions, EventBridge</p>
+                <h4>AWS</h4>
+                <p>EC2, ALB, Lambda, Step Functions, Glue, Athena, RDS, EventBridge, Secrets Manager, ElastiCache</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>Transformation</h4>
-                <p>dbt Core (BigQuery, DuckDB), SQL models, data quality tests, CI/CD via GitHub Actions</p>
+                <h4>Testing</h4>
+                <p>k6 load tests, pytest, Prometheus, Grafana</p>
               </div>
               <div className={styles.skillCategory}>
-                <h4>Streaming</h4>
-                <p>Apache Kafka, Java Streams, real-time anomaly detection</p>
+                <h4>Containers</h4>
+                <p>Docker, Linux Lambda packaging</p>
               </div>
             </div>
           </div>
@@ -245,16 +242,16 @@ const Home = () => {
             </div>
             <div className={styles.expertiseContent}>
               <div className={styles.skillCategory}>
-                <h4>Distributed Processing</h4>
-                <p>Apache Spark, PySpark, ephemeral Dataproc clusters, DuckDB</p>
-              </div>
-              <div className={styles.skillCategory}>
-                <h4>Storage Formats</h4>
-                <p>Delta Lake (atomic commits, schema enforcement), Parquet, S3, GCS</p>
-              </div>
-              <div className={styles.skillCategory}>
                 <h4>Databases</h4>
-                <p>PostgreSQL, BigQuery, Athena SQL, RDS, SQLite</p>
+                <p>PostgreSQL, Apache Cassandra, Amazon DynamoDB, Amazon S3, Parquet</p>
+              </div>
+              <div className={styles.skillCategory}>
+                <h4>Search</h4>
+                <p>HNSW vector index on Cassandra for RAG embeddings</p>
+              </div>
+              <div className={styles.skillCategory}>
+                <h4>Languages</h4>
+                <p>Go, Java, Python, SQL</p>
               </div>
             </div>
           </div>
@@ -263,5 +260,4 @@ const Home = () => {
     </motion.div>
   )
 }
-
 export default Home
